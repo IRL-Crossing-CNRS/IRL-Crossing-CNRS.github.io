@@ -2,14 +2,15 @@
   {
     "slug": "lotusim-iros2026",
     "title": "LOTUSim: Multi-Domain Simulator for Marine Robotics",
+    "type": ["paper"],
     "authors": [
-      { "name": "Cédric Buche", "url": "#", "affiliations": [1, 3] },
-      { "name": "Juliette Grosset", "url": "#", "affiliations": [1, 2] },
-      { "name": "Hélène Lechêne", "url": "#", "affiliations": [2] },
-      { "name": "Marie Dubromel", "url": "#", "affiliations": [1, 2] },
-      { "name": "Pierig Havez-Bodivit", "url": "#", "affiliations": [2] },
-      { "name": "Malcom Neo", "url": "#", "affiliations": [2] },
-      { "name": "Julien Prodhon", "url": "#", "affiliations": [2] }
+      { "name": "Cédric Buche", "url": "https://cedricbuche.github.io/", "affiliations": [1, 3] },
+      { "name": "Juliette Grosset", "url": "https://scholar.google.com/citations?user=sf6Hqf0AAAAJ&hl=en", "affiliations": [1, 2] },
+      { "name": "Hélène Lechêne", "url": "https://scholar.google.com/citations?user=B21SMLgAAAAJ&hl=en", "affiliations": [2] },
+      { "name": "Marie Dubromel", "url": "https://www.linkedin.com/in/marie-dubromel-922150221/?locale=en", "affiliations": [1, 2] },
+      { "name": "Pierig Havez-Bodivit", "url": "https://www.linkedin.com/in/pierighavez-bodivit/?locale=en", "affiliations": [2] },
+      { "name": "Malcom Neo", "url": "https://www.linkedin.com/in/malcolmneo/", "affiliations": [2] },
+      { "name": "Julien Prodhon", "url": "https://github.com/julienprodhon", "affiliations": [2] }
     ],
     "affiliations": ["CROSSING IRL 2010, CNRS", "Naval Group, France", "IMT Atlantique"],
     "year": 2026,
@@ -18,7 +19,6 @@
     "tags": ["maritime robotics", "multi-agent simulation", "human-in-the-loop", "underwater currents"],
     "pdfUrl": "/resources/lotusim-iros2026.pdf",
     "repoUrl": "https://github.com/IRL-Crossing-CNRS/LOTUSim",
-    "arxivUrl": "https://arxiv.org/abs/2607.03072",
-    "featured": true
+    "arxivUrl": "https://arxiv.org/abs/2607.03072"
   }
 ]

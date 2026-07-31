@@ -6,6 +6,7 @@ import { resourcePages } from '../data/resourcePages';
 import { EASE_REFINED } from '../lib/motion';
 import type { Resource } from '../types/resource';
 import { ArxivIcon, GithubIcon } from './icons';
+import TypeBadge from './resource-list/TypeBadge';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 16 },
@@ -19,19 +20,8 @@ interface LinkItem {
 }
 
 export default function ResourceCard({ resource }: { resource: Resource }) {
-  const {
-    title,
-    authors,
-    year,
-    venue,
-    abstract,
-    tags,
-    pdfUrl,
-    repoUrl,
-    resourceUrl,
-    arxivUrl,
-    featured,
-  } = resource;
+  const { title, type, authors, year, venue, abstract, tags, pdfUrl, repoUrl, resourceUrl, arxivUrl } =
+    resource;
 
   const allLinks: LinkItem[] = [
     { href: pdfUrl, label: 'PDF', icon: FileText },
@@ -51,13 +41,15 @@ export default function ResourceCard({ resource }: { resource: Resource }) {
       transition={{ duration: 0.2, ease: EASE_REFINED }}
       className="flex h-full flex-col gap-4 rounded-2xl border border-border bg-surface p-6 shadow-sm"
     >
-      <div className="flex items-center justify-between gap-3 text-xs text-muted">
+      <div className="flex flex-col gap-2 text-xs text-muted">
+        <div className="flex flex-wrap items-center gap-1.5">
+          {type.map((t) => (
+            <TypeBadge key={t} type={t} />
+          ))}
+        </div>
         <span>
           {venue} &middot; {year}
         </span>
-        {featured && (
-          <span className="rounded-full bg-accent-soft px-2.5 py-1 font-medium text-accent">Featured</span>
-        )}
       </div>
 
       <h3 className="text-xl font-semibold leading-snug tracking-tight text-foreground">

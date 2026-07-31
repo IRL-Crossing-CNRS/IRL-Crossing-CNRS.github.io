@@ -4,9 +4,14 @@ export interface Author {
   affiliations?: number[];
 }
 
+// Open-ended on purpose: only "paper" exists in the data today, but this
+// shouldn't need a code change every time a new resource type shows up.
+export type ResourceType = string;
+
 export interface Resource {
   slug: string;
   title: string;
+  type: ResourceType[];
   authors: Author[];
   affiliations?: string[];
   year: number;
@@ -18,5 +23,4 @@ export interface Resource {
   repoUrl?: string;
   resourceUrl?: string;
   arxivUrl?: string;
-  featured?: boolean;
 }
