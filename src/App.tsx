@@ -1,6 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
 import { Suspense } from 'react';
 import { BrowserRouter, Navigate, Route, Routes, useLocation, useParams } from 'react-router-dom';
+import BackToTopButton from './components/BackToTopButton';
 import Footer from './components/Footer';
 import Navbar from './components/Navbar';
 import PageTransition from './components/PageTransition';
@@ -20,6 +21,7 @@ function ResourceDetailRoute() {
   return (
     <Suspense fallback={null}>
       <ResourcePage />
+      <BackToTopButton />
     </Suspense>
   );
 }
