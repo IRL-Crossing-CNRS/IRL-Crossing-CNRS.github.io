@@ -6,20 +6,20 @@ import Navbar from './components/Navbar';
 import PageTransition from './components/PageTransition';
 import { ThemeProvider } from './context/ThemeContext';
 import { SectionNavProvider } from './context/SectionNavContext';
-import { publicationPages } from './data/publicationPages';
+import { resourcePages } from './data/resourcePages';
 import Home from './pages/Home';
 
-function PublicationDetailRoute() {
+function ResourceDetailRoute() {
   const { slug } = useParams<{ slug: string }>();
-  const PublicationPage = slug ? publicationPages[slug] : undefined;
+  const ResourcePage = slug ? resourcePages[slug] : undefined;
 
-  if (!PublicationPage) {
+  if (!ResourcePage) {
     return <Navigate to="/" replace />;
   }
 
   return (
     <Suspense fallback={null}>
-      <PublicationPage />
+      <ResourcePage />
     </Suspense>
   );
 }
@@ -39,10 +39,10 @@ function AnimatedRoutes() {
           }
         />
         <Route
-          path="/publications/:slug"
+          path="/resources/:slug"
           element={
             <PageTransition>
-              <PublicationDetailRoute />
+              <ResourceDetailRoute />
             </PageTransition>
           }
         />

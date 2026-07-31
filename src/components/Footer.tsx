@@ -25,7 +25,7 @@ export default function Footer() {
         >
           <img src="" alt="" />
         </a>
-        <Link to="/" className="flex items-center gap-3" aria-label="IRL CROSSING - Publications">
+        <Link to="/" className="flex items-center gap-3" aria-label="IRL CROSSING - Resources">
           <img src={logoLight} alt="" className="block h-6 w-auto dark:hidden" />
           <img src={logoDark} alt="" className="hidden h-6 w-auto dark:block" />
         </Link>

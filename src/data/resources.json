@@ -16,7 +16,7 @@
     "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
     "abstract": "Simulation is essential for maritime robotics, supporting operator training, mission rehearsal, and human-vehicle interaction in environments where real-world testing is costly or hazardous. LOTUSim is an open-source, real-time maritime simulator supporting multi-user interaction across aerial, surface, and underwater robotic systems for coordinated naval-style operations, combining real-time interactive performance at scale with an Ekman-inspired underwater current model validated against ocean reanalysis data.",
     "tags": ["maritime robotics", "multi-agent simulation", "human-in-the-loop", "underwater currents"],
-    "pdfUrl": "/publications/lotusim-iros2026.pdf",
+    "pdfUrl": "/resources/lotusim-iros2026.pdf",
     "repoUrl": "https://github.com/IRL-Crossing-CNRS/LOTUSim",
     "arxivUrl": "https://arxiv.org/abs/2607.03072",
     "featured": true

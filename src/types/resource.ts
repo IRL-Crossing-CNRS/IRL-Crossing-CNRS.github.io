@@ -4,7 +4,7 @@ export interface Author {
   affiliations?: number[];
 }
 
-export interface Publication {
+export interface Resource {
   slug: string;
   title: string;
   authors: Author[];
@@ -16,7 +16,7 @@ export interface Publication {
   image?: string;
   pdfUrl?: string;
   repoUrl?: string;
-  publicationUrl?: string;
+  resourceUrl?: string;
   arxivUrl?: string;
   featured?: boolean;
 }

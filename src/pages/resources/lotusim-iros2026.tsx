@@ -1,25 +1,25 @@
-import { ArrowUpRight, FileText, PlayCircle } from 'lucide-react';
+import { FileText, PlayCircle } from 'lucide-react';
 import { GithubIcon, ArxivIcon } from '../../components/icons';
-import CitationBlock from '../../components/publication-detail/CitationBlock';
-import Figure from '../../components/publication-detail/Figure';
-import PublicationHero from '../../components/publication-detail/PublicationHero';
-import Section from '../../components/publication-detail/Section';
-import SidebarCard from '../../components/publication-detail/SidebarCard';
-import SidebarLinks from '../../components/publication-detail/SidebarLinks';
-import StatGrid from '../../components/publication-detail/StatGrid';
-import TableOfContents from '../../components/publication-detail/TableOfContents';
+import CitationBlock from '../../components/resource-detail/CitationBlock';
+import Figure from '../../components/resource-detail/Figure';
+import ResourceHero from '../../components/resource-detail/ResourceHero';
+import Section from '../../components/resource-detail/Section';
+import SidebarCard from '../../components/resource-detail/SidebarCard';
+import SidebarLinks from '../../components/resource-detail/SidebarLinks';
+import StatGrid from '../../components/resource-detail/StatGrid';
+import TableOfContents from '../../components/resource-detail/TableOfContents';
 import { useRegisterSectionNav } from '../../context/SectionNavContext';
-import publicationsData from '../../data/publications.json';
-import type { Publication } from '../../types/publication';
+import resourcesData from '../../data/resources.json';
+import type { Resource } from '../../types/resource';
 
-import architectureImg from '../../assets/publications/lotusim-iros2026/architecture.png';
-import natureInterfaceImg from '../../assets/publications/lotusim-iros2026/natural-interface.jpg';
-import overviewImg from '../../assets/publications/lotusim-iros2026/overview.jpg';
-import rtfImg from '../../assets/publications/lotusim-iros2026/rtf-vs-agents.png';
-import simToRealImg from '../../assets/publications/lotusim-iros2026/sim-to-real-testpool.png';
-import vrInteractionImg from '../../assets/publications/lotusim-iros2026/vr-interaction.jpg';
+import architectureImg from '../../assets/resources/lotusim-iros2026/architecture.png';
+import natureInterfaceImg from '../../assets/resources/lotusim-iros2026/natural-interface.jpg';
+import overviewImg from '../../assets/resources/lotusim-iros2026/overview.jpg';
+import rtfImg from '../../assets/resources/lotusim-iros2026/rtf-vs-agents.png';
+import simToRealImg from '../../assets/resources/lotusim-iros2026/sim-to-real-testpool.png';
+import vrInteractionImg from '../../assets/resources/lotusim-iros2026/vr-interaction.jpg';
 
-const publication = (publicationsData as Publication[]).find((p) => p.slug === 'lotusim-iros2026')!;
+const resource = (resourcesData as Resource[]).find((p) => p.slug === 'lotusim-iros2026')!;
 
 const VIDEO_ID = 'iXDz8ZqSpq4';
 const VIDEO_URL = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
@@ -39,39 +39,37 @@ const PLAIN_CITATION =
   'C. Buche, J. Grosset, H. Lechêne, M. Dubromel, P. Havez-Bodivit, M. Neo, and J. Prodhon, "LOTUSim: Multi-Domain Simulator for Marine Robotics," in Proc. IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026.';
 
 const BIBTEX = [
-  '@inproceedings{buche2026lotusim,',
-  '  title     = {{LOTUSim}: Multi-Domain Simulator for Marine Robotics},',
-  '  author    = {Buche, Cédric and Grosset, Juliette and Lechêne, Hélène',
-  '               and Dubromel, Marie and Havez-Bodivit, Pierig and Neo, Malcom',
-  '               and Prodhon, Julien},',
-  '  booktitle = {Proceedings of the IEEE/RSJ International Conference on',
-  '               Intelligent Robots and Systems (IROS)},',
-  '  year      = {2026}',
-  '}',
+  '@inproceedings{LOTUSim26iros,',
+  'title     = {{LOTUSim}: Multi-Domain Simulator for Marine Robotics},',
+  'author    = {Buche, Cedric and Grosset, Juliette and Lechene, Helene and Dubromel, Marie and Havez-Bodivit, Pierig and Neo, Malcom and Prodhon, Julien},',
+  'booktitle = {2026 IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)},',
+  'year      = {2026},',
+  'publisher = {IEEE}',
+  '},'
 ].join('\n');
 
 export default function LotuSimIros2026() {
   useRegisterSectionNav(NAV_ITEMS);
 
   const sidebarLinks = [
-    { href: publication.pdfUrl, label: 'Paper (PDF)', icon: FileText },
-    { href: publication.arxivUrl, label: 'arXiv', icon: ArxivIcon },
+    { href: resource.pdfUrl, label: 'Paper (PDF)', icon: FileText },
+    { href: resource.arxivUrl, label: 'arXiv', icon: ArxivIcon },
     { href: VIDEO_URL, label: 'Video', icon: PlayCircle },
-    { href: publication.repoUrl, label: 'Code', icon: GithubIcon },
+    { href: resource.repoUrl, label: 'Code', icon: GithubIcon },
   ];
 
   return (
     <div className="mx-auto max-w-6xl px-6 pb-24 pt-12 sm:pt-16">
       <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_280px] lg:items-start lg:gap-16">
         <div className="max-w-3xl">
-          <PublicationHero
+          <ResourceHero
             eyebrow="IEEE/RSJ IROS 2026"
-            title={publication.title}
-            authors={publication.authors}
-            affiliations={publication.affiliations ?? []}
-            pdfUrl={publication.pdfUrl}
-            repoUrl={publication.repoUrl}
-            arxivUrl={publication.arxivUrl}
+            title={resource.title}
+            authors={resource.authors}
+            affiliations={resource.affiliations ?? []}
+            pdfUrl={resource.pdfUrl}
+            repoUrl={resource.repoUrl}
+            arxivUrl={resource.arxivUrl}
             videoUrl={VIDEO_URL}
           />
 
@@ -280,7 +278,7 @@ export default function LotuSimIros2026() {
           </SidebarCard>
           <SidebarCard title="Tags">
             <div className="flex flex-wrap gap-2">
-              {publication.tags.map((tag) => (
+              {resource.tags.map((tag) => (
                 <span
                   key={tag}
                   className="rounded-full border border-border px-2.5 py-1 text-xs text-muted"

@@ -2,9 +2,9 @@ import { motion } from 'framer-motion';
 import { ArrowRight, ArrowUpRight, FileText, Link as LinkIcon } from 'lucide-react';
 import type { ComponentType } from 'react';
 import { Link } from 'react-router-dom';
-import { publicationPages } from '../data/publicationPages';
+import { resourcePages } from '../data/resourcePages';
 import { EASE_REFINED } from '../lib/motion';
-import type { Publication } from '../types/publication';
+import type { Resource } from '../types/resource';
 import { ArxivIcon, GithubIcon } from './icons';
 
 const cardVariants = {
@@ -18,7 +18,7 @@ interface LinkItem {
   icon: ComponentType<{ size?: number }>;
 }
 
-export default function PublicationCard({ publication }: { publication: Publication }) {
+export default function ResourceCard({ resource }: { resource: Resource }) {
   const {
     title,
     authors,
@@ -28,21 +28,21 @@ export default function PublicationCard({ publication }: { publication: Publicat
     tags,
     pdfUrl,
     repoUrl,
-    publicationUrl,
+    resourceUrl,
     arxivUrl,
     featured,
-  } = publication;
+  } = resource;
 
   const allLinks: LinkItem[] = [
     { href: pdfUrl, label: 'PDF', icon: FileText },
     { href: arxivUrl, label: 'arXiv', icon: ArxivIcon },
     { href: repoUrl, label: 'Repository', icon: GithubIcon },
-    { href: publicationUrl, label: 'Publication page', icon: LinkIcon },
+    { href: resourceUrl, label: 'Resource page', icon: LinkIcon },
   ];
   const links = allLinks.filter(
     (link): link is LinkItem & { href: string } => Boolean(link.href),
   );
-  const hasDetailPage = publication.slug in publicationPages;
+  const hasDetailPage = resource.slug in resourcePages;
 
   return (
     <motion.article
@@ -63,7 +63,7 @@ export default function PublicationCard({ publication }: { publication: Publicat
       <h3 className="text-xl font-semibold leading-snug tracking-tight text-foreground">
         {hasDetailPage ? (
           <Link
-            to={`/publications/${publication.slug}`}
+            to={`/resources/${resource.slug}`}
             className="group inline-flex items-start gap-1 transition-colors duration-200 hover:text-accent"
           >
             {title}
@@ -96,10 +96,10 @@ export default function PublicationCard({ publication }: { publication: Publicat
         <div className="border-t border-border pt-4">
           {hasDetailPage && (
             <Link
-              to={`/publications/${publication.slug}`}
+              to={`/resources/${resource.slug}`}
               className="group inline-flex items-center gap-1.5 text-sm font-medium text-accent"
             >
-              Read publication
+              Read resource
               <ArrowRight size={14} className="transition-transform duration-200 group-hover:translate-x-0.5" />
             </Link>
           )}

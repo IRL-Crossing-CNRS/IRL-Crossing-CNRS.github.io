@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
-import PublicationCard from '../components/PublicationCard';
-import publications from '../data/publications.json';
-import type { Publication } from '../types/publication';
+import ResourceCard from '../components/ResourceCard';
+import resources from '../data/resources.json';
+import type { Resource } from '../types/resource';
 
 const gridVariants = {
   hidden: {},
@@ -11,7 +11,7 @@ const gridVariants = {
 };
 
 export default function Home() {
-  const items = publications as Publication[];
+  const items = resources as Resource[];
   const sorted = [...items].sort((a, b) => b.year - a.year);
 
   return (
@@ -23,14 +23,14 @@ export default function Home() {
         className="mb-16 max-w-2xl"
       >
         <span className="glass inline-flex items-center rounded-full border border-border px-3 py-1 text-xs text-muted">
-          {items.length} publication{items.length === 1 ? '' : 's'} indexed
+          {items.length} resource{items.length === 1 ? '' : 's'} indexed
         </span>
         <h1 className="mt-5 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-          Publications
+          Resources
         </h1>
         <p className="mt-4 text-base leading-relaxed text-muted">
           A running index of research outputs from IRL CROSSING CNRS, the French-Australian
-          laboratory for humans-autonomous agents teaming. Each entry summarizes a publication and
+          laboratory for humans-autonomous agents teaming. Each entry summarizes a resource and
           links out to the full paper, code, and data.
         </p>
       </motion.section>
@@ -41,8 +41,8 @@ export default function Home() {
         animate="visible"
         className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3"
       >
-        {sorted.map((publication) => (
-          <PublicationCard key={publication.slug} publication={publication} />
+        {sorted.map((resource) => (
+          <ResourceCard key={resource.slug} resource={resource} />
         ))}
       </motion.div>
     </div>

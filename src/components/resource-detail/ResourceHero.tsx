@@ -1,9 +1,9 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, ArrowUpRight, FileText, PlayCircle } from 'lucide-react';
+import { ArrowLeft, FileText, PlayCircle } from 'lucide-react';
 import type { ComponentType } from 'react';
 import { Link } from 'react-router-dom';
 import { EASE_REFINED } from '../../lib/motion';
-import type { Author } from '../../types/publication';
+import type { Author } from '../../types/resource';
 import { GithubIcon, ArxivIcon } from '../icons';
 
 interface HeroLink {
@@ -12,7 +12,7 @@ interface HeroLink {
   icon: ComponentType<{ size?: number }>;
 }
 
-export default function PublicationHero({
+export default function ResourceHero({
   eyebrow,
   title,
   authors,
@@ -52,7 +52,7 @@ export default function PublicationHero({
           className="inline-flex items-center gap-1.5 text-sm text-muted transition-colors duration-200 hover:text-accent"
         >
           <ArrowLeft size={14} />
-          All publications
+          All resources
         </Link>
 
         <span className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs text-muted">
