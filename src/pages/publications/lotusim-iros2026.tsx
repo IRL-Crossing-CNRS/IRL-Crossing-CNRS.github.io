@@ -1,5 +1,5 @@
-import { FileText, PlayCircle } from 'lucide-react';
-import { GithubIcon } from '../../components/icons';
+import { ArrowUpRight, FileText, PlayCircle } from 'lucide-react';
+import { GithubIcon, ArxivIcon } from '../../components/icons';
 import CitationBlock from '../../components/publication-detail/CitationBlock';
 import Figure from '../../components/publication-detail/Figure';
 import PublicationHero from '../../components/publication-detail/PublicationHero';
@@ -55,6 +55,7 @@ export default function LotuSimIros2026() {
 
   const sidebarLinks = [
     { href: publication.pdfUrl, label: 'Paper (PDF)', icon: FileText },
+    { href: publication.arxivUrl, label: 'arXiv', icon: ArxivIcon },
     { href: VIDEO_URL, label: 'Video', icon: PlayCircle },
     { href: publication.repoUrl, label: 'Code', icon: GithubIcon },
   ];
@@ -67,28 +68,39 @@ export default function LotuSimIros2026() {
             eyebrow="IEEE/RSJ IROS 2026"
             title={publication.title}
             authors={publication.authors}
-            affiliations="CROSSING IRL 2010, CNRS · Naval Group, France · IMT Atlantique"
+            affiliations={publication.affiliations ?? []}
             pdfUrl={publication.pdfUrl}
             repoUrl={publication.repoUrl}
+            arxivUrl={publication.arxivUrl}
             videoUrl={VIDEO_URL}
           />
 
 
           <Section id="abstract" title="Abstract" noDivider>
             <p>
-              Simulation is essential for maritime robotics, supporting operator training, mission
-              rehearsal, and human&ndash;vehicle interaction in environments where real-world testing
-              is costly or hazardous. Existing simulators focus primarily on autonomy systems and
-              often lack human-in-the-loop interaction and realistic environmental physics.
+              Simulation is <strong className="font-semibold text-foreground">essential</strong> for
+              maritime robotics, supporting operator training, mission rehearsal, and
+              human&ndash;vehicle interaction in environments where real-world testing is
+              <strong className="font-semibold text-foreground"> costly or hazardous</strong>. Existing
+              simulators focus primarily on autonomy systems and often lack human-in-the-loop
+              interaction and realistic environmental physics. This paper introduces LOTUSim, an{' '}
+              <strong className="font-semibold text-foreground">open-source, real-time maritime simulator</strong>{' '}
+              supporting multi-user interaction across aerial, surface, and underwater robotic systems
+              for coordinated naval-style operations.
             </p>
             <p>
-              LOTUSim is an open-source, real-time maritime simulator supporting multi-user
-              interaction across aerial, surface, and underwater robotic systems for coordinated
-              naval-style operations. It targets two contributions: real-time interactive performance
-              that scales to large heterogeneous fleets, and a computationally efficient,
-              Ekman-inspired layered underwater current model that captures wind-driven,
-              depth-dependent flow dynamics with sufficient physical fidelity for large-scale
-              simulation.
+              The first contribution of this work is{' '}
+              <strong className="font-semibold text-foreground">enabling real-time interactive performance</strong>{' '}
+              for users while ensuring scalability to large fleets operating within a shared interactive
+              simulation environment. Validation demonstrates robust human-in-the-loop performance,
+              maintaining strict real-time execution and high visual fidelity while scaling to large
+              heterogeneous maritime drone swarms. The second contribution is a{' '}
+              <strong className="font-semibold text-foreground">computationally efficient, Ekman-inspired layered underwater current model</strong>{' '}
+              that captures wind-driven, depth-dependent flow dynamics with sufficient physical fidelity
+              for large-scale simulations. Validation against ocean reanalysis data demonstrates
+              substantially improved accuracy compared to commonly used stochastic Gauss&ndash;Markov
+              current models. These results confirm LOTUSim&rsquo;s suitability as a simulation platform
+              for operator-in-the-loop maritime robotics research.
             </p>
             <Figure
               src={overviewImg}
@@ -99,16 +111,18 @@ export default function LotuSimIros2026() {
 
           <Section id="architecture" title="System Architecture">
             <p>
-              LOTUSim leverages ROS2, Gazebo, and Unity as a distributed, server-client simulation
-              framework. Gazebo orchestrates assets and physics, ROS2 handles multi-agent
-              communication and integration with real drones, and Unity serves as the primary
-              visualisation and interaction engine &mdash; chosen over engines with superior
-              photorealism for its extensibility and native support for immersive interfaces such as
-              VR and Leap Motion.
+              LOTUSim leverages{' '}
+              <strong className="font-semibold text-foreground">ROS2, Gazebo, and Unity</strong> as a
+              distributed, server-client simulation framework. Gazebo orchestrates assets and physics,
+              ROS2 handles multi-agent communication and integration with real drones, and Unity serves
+              as the primary visualisation and interaction engine - chosen over engines with
+              superior photorealism for its{' '}
+              <strong className="font-semibold text-foreground">extensibility and native support for immersive interfaces</strong>{' '}
+              such as VR and Leap Motion.
             </p>
             <p>
-              The core module interfaces with three client types &mdash; physics computation,
-              rendering, and agent interaction &mdash; each supporting different communication
+              The core module interfaces with three client types - physics computation,
+              rendering, and agent interaction - each supporting different communication
               protocols, including ROS2, WebSocket, and TCP/IP. For surface ships and underwater
               drones, LOTUSim connects to{' '}
               <a
@@ -128,8 +142,9 @@ export default function LotuSimIros2026() {
               >
                 LOTUSim-Xdyn
               </a>
-              . Shared missions are synchronised across operators in real time through Photon Unity
-              Networking (PUN2) over a cloud-relay architecture.
+              . Shared missions are{' '}
+              <strong className="font-semibold text-foreground">synchronised across operators in real time</strong>{' '}
+              through Photon Unity Networking (PUN2) over a cloud-relay architecture.
             </p>
             <Figure
               src={architectureImg}
@@ -142,18 +157,21 @@ export default function LotuSimIros2026() {
           <Section id="underwater-currents" title="Underwater Current Model">
             <p>
               Most existing maritime simulators represent ocean currents with a constant unidirectional
-              force or a stochastic Gauss&ndash;Markov process &mdash; efficient, but insufficient for
-              naval operations where depth-dependent, wind-driven currents strongly affect vehicle
-              behaviour and sensor performance. LOTUSim instead divides the water column into three
-              vertical zones inspired by classical Ekman theory: a wind-driven spiral at the surface, a
-              geostrophic interior largely unaffected by surface or bottom friction, and a bottom Ekman
-              spiral shaped by the seabed.
+              force or a stochastic Gauss&ndash;Markov process - efficient, but{' '}
+              <strong className="font-semibold text-foreground">insufficient for naval operations</strong>{' '}
+              where depth-dependent, wind-driven currents strongly affect vehicle behaviour and sensor
+              performance. LOTUSim instead divides the water column into{' '}
+              <strong className="font-semibold text-foreground">three vertical zones</strong> inspired by
+              classical Ekman theory: a wind-driven spiral at the surface, a geostrophic interior
+              largely unaffected by surface or bottom friction, and a bottom Ekman spiral shaped by the
+              seabed.
             </p>
             <p>
-              The model was validated against Copernicus in-situ ocean reanalysis data off the coast of
-              Brest, France, across five days, four daily time samples, and depths from 0.5&nbsp;m to
-              1,000&nbsp;m, then compared to the Gauss&ndash;Markov baseline used in simulators such as
-              UUVSim and DAVE.
+              The model was{' '}
+              <strong className="font-semibold text-foreground">validated against Copernicus in-situ ocean reanalysis data</strong>{' '}
+              off the coast of Brest, France, across five days, four daily time samples, and depths from
+              0.5&nbsp;m to 1,000&nbsp;m, then compared to the Gauss&ndash;Markov baseline used in
+              simulators such as UUVSim and DAVE.
             </p>
             <StatGrid
               stats={[
@@ -170,16 +188,17 @@ export default function LotuSimIros2026() {
           <Section id="performance" title="Real-Time Performance">
             <p>
               LOTUSim's interactivity is evaluated on four metrics that directly impact human
-              perception and control precision: visual frame rate, physics update rate, real-time
-              factor (RTF), and behaviour under large-scale heterogeneous scenarios. On a single
-              high-end workstation (RTX&nbsp;4090&nbsp;Laptop, ROS2&nbsp;Humble), LOTUSim keeps the
-              physics update rate within the 200&nbsp;ms perceptual-responsiveness threshold while
-              scaling up to 750 Long-Range Autonomous Underwater Vehicles or 450 BlueROVs.
+              perception and control precision: visual frame rate, physics update rate,{' '}
+              <strong className="font-semibold text-foreground">real-time factor (RTF)</strong>, and
+              behaviour under large-scale heterogeneous scenarios. On a single high-end workstation
+              (RTX&nbsp;4090&nbsp;Laptop, ROS2&nbsp;Humble), LOTUSim keeps the physics update rate
+              within the 200&nbsp;ms perceptual-responsiveness threshold while{' '}
+              <strong className="font-semibold text-foreground">scaling up to 750 Long-Range Autonomous Underwater Vehicles or 450 BlueROVs</strong>.
             </p>
             <Figure
               src={rtfImg}
               alt="Line chart of real-time factor versus number of agents at a 30 millisecond control loop, for LOTUSim BlueROV and LOTUSim LRAUV, both staying above real time."
-              caption="Fig. 5 - Real-time factor (RTF) as a function of fleet size at a 30 ms control loop. A single agent exceeds RTF 20 &mdash; headroom that can be traded for accelerated, faster-than-real-time AI training &mdash; while RTF stays above 1 as the swarm grows."
+              caption="Fig. 5 - Real-time factor (RTF) as a function of fleet size at a 30 ms control loop. A single agent exceeds RTF 20 - headroom that can be traded for accelerated, faster-than-real-time AI training - while RTF stays above 1 as the swarm grows."
               light
             />
             <StatGrid
@@ -193,12 +212,13 @@ export default function LotuSimIros2026() {
 
           <Section id="immersive-interaction" title="Immersive Interaction">
             <p>
-              Beyond conventional keyboard and screen control, LOTUSim integrates sensors that capture
-              human intent, motion, and cognitive state: a 6-DOF virtual-reality headset for immersive
-              first-person operation, Leap Motion for gesture-based hand and finger tracking, and a
-              non-immersive eye tracker for attention and fatigue monitoring. Onboard, a comparable
-              sensor suite &mdash; LiDAR, radar, IMU, magnetometer, depth sensor, and RGB camera
-              &mdash; publishes to standard ROS2 topics for autonomous perception.
+              Beyond conventional keyboard and screen control, LOTUSim integrates sensors that capture{' '}
+              <strong className="font-semibold text-foreground">human intent, motion, and cognitive state</strong>:
+              a 6-DOF virtual-reality headset for immersive first-person operation, Leap Motion for
+              gesture-based hand and finger tracking, and a non-immersive eye tracker for attention and
+              fatigue monitoring. Onboard, a comparable sensor suite - LiDAR, radar, IMU,
+              magnetometer, depth sensor, and RGB camera - publishes to standard ROS2 topics for
+              autonomous perception.
             </p>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Figure
@@ -216,11 +236,13 @@ export default function LotuSimIros2026() {
 
           <Section id="sim-to-real" title="Sim-to-Real Validation">
             <p>
-              Prior work transferred a fault-tolerant control strategy for the BlueROV2 Heavy from
-              LOTUSim to a physical platform: the controller was first designed and evaluated in
-              simulation, then validated in real-world pool trials, where it dynamically adapted motor
-              commands in response to faults without relying on explicit fault diagnosis &mdash;
-              confirming that behaviour learned in LOTUSim transfers to the real vehicle.
+              Prior work transferred a{' '}
+              <strong className="font-semibold text-foreground">fault-tolerant control strategy</strong>{' '}
+              for the BlueROV2 Heavy from LOTUSim to a physical platform: the controller was first
+              designed and evaluated in simulation, then validated in real-world pool trials, where it
+              dynamically adapted motor commands in response to faults without relying on explicit fault
+              diagnosis - confirming that{' '}
+              <strong className="font-semibold text-foreground">behaviour learned in LOTUSim transfers to the real vehicle</strong>.
             </p>
             <Figure
               src={simToRealImg}

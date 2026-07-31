@@ -1,7 +1,14 @@
+export interface Author {
+  name: string;
+  url?: string;
+  affiliations?: number[];
+}
+
 export interface Publication {
   slug: string;
   title: string;
-  authors: string[];
+  authors: Author[];
+  affiliations?: string[];
   year: number;
   venue: string;
   abstract: string;
@@ -10,5 +17,6 @@ export interface Publication {
   pdfUrl?: string;
   repoUrl?: string;
   publicationUrl?: string;
+  arxivUrl?: string;
   featured?: boolean;
 }

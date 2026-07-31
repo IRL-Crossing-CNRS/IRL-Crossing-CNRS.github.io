@@ -1,9 +1,10 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, FileText, PlayCircle } from 'lucide-react';
+import { ArrowLeft, ArrowUpRight, FileText, PlayCircle } from 'lucide-react';
 import type { ComponentType } from 'react';
 import { Link } from 'react-router-dom';
 import { EASE_REFINED } from '../../lib/motion';
-import { GithubIcon } from '../icons';
+import type { Author } from '../../types/publication';
+import { GithubIcon, ArxivIcon } from '../icons';
 
 interface HeroLink {
   href?: string;
@@ -18,18 +19,21 @@ export default function PublicationHero({
   affiliations,
   pdfUrl,
   repoUrl,
+  arxivUrl,
   videoUrl,
 }: {
   eyebrow: string;
   title: string;
-  authors: string[];
-  affiliations: string;
+  authors: Author[];
+  affiliations: string[];
   pdfUrl?: string;
   repoUrl?: string;
+  arxivUrl?: string;
   videoUrl?: string;
 }) {
   const allLinks: HeroLink[] = [
     { href: pdfUrl, label: 'Paper (PDF)', icon: FileText },
+    { href: arxivUrl, label: 'arXiv', icon: ArxivIcon },
     { href: videoUrl, label: 'Video', icon: PlayCircle },
     { href: repoUrl, label: 'Code', icon: GithubIcon },
   ];
@@ -60,8 +64,37 @@ export default function PublicationHero({
         {title}
       </h1>
 
-      <p className="mt-4 text-sm leading-relaxed text-muted">{authors.join(', ')}</p>
-      <p className="mt-1 text-xs text-muted">{affiliations}</p>
+      <p className="mt-4 text-sm leading-relaxed text-muted">
+        {authors.map((author, index) => (
+          <span key={author.name}>
+            {author.url ? (
+              <a
+                href={author.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="text-foreground transition-colors duration-200 hover:text-accent"
+              >
+                {author.name}
+              </a>
+            ) : (
+              <span className="text-foreground">{author.name}</span>
+            )}
+            {author.affiliations && author.affiliations.length > 0 && (
+              <sup className="ml-0.5">{author.affiliations.join(',')}</sup>
+            )}
+            {index < authors.length - 1 && ', '}
+          </span>
+        ))}
+      </p>
+      <p className="mt-1 text-xs text-muted">
+        {affiliations.map((affiliation, index) => (
+          <span key={affiliation}>
+            <sup>{index + 1}</sup>
+            {affiliation}
+            {index < affiliations.length - 1 && ' · '}
+          </span>
+        ))}
+      </p>
 
       {links.length > 0 && (
         <div className="mt-7 flex flex-wrap items-center gap-3">

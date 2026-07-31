@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { publicationPages } from '../data/publicationPages';
 import { EASE_REFINED } from '../lib/motion';
 import type { Publication } from '../types/publication';
-import { GithubIcon } from './icons';
+import { ArxivIcon, GithubIcon } from './icons';
 
 const cardVariants = {
   hidden: { opacity: 0, y: 16 },
@@ -19,11 +19,23 @@ interface LinkItem {
 }
 
 export default function PublicationCard({ publication }: { publication: Publication }) {
-  const { title, authors, year, venue, abstract, tags, pdfUrl, repoUrl, publicationUrl, featured } =
-    publication;
+  const {
+    title,
+    authors,
+    year,
+    venue,
+    abstract,
+    tags,
+    pdfUrl,
+    repoUrl,
+    publicationUrl,
+    arxivUrl,
+    featured,
+  } = publication;
 
   const allLinks: LinkItem[] = [
     { href: pdfUrl, label: 'PDF', icon: FileText },
+    { href: arxivUrl, label: 'arXiv', icon: ArxivIcon },
     { href: repoUrl, label: 'Repository', icon: GithubIcon },
     { href: publicationUrl, label: 'Publication page', icon: LinkIcon },
   ];
@@ -65,7 +77,7 @@ export default function PublicationCard({ publication }: { publication: Publicat
         )}
       </h3>
 
-      <p className="text-sm text-muted">{authors.join(', ')}</p>
+      <p className="text-sm text-muted">{authors.map((author) => author.name).join(', ')}</p>
 
       <p className="flex-1 text-sm leading-relaxed text-muted">{abstract}</p>
 
