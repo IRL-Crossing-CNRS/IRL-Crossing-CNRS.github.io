@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "lotusim-iros2026",
+    "title": "LOTUSim: Multi-Domain Simulator for Marine Robotics",
+    "authors": [
+      "Cédric Buche",
+      "Juliette Grosset",
+      "Hélène Lechêne",
+      "Marie Dubromel",
+      "Pierig Havez-Bodivit",
+      "Malcom Neo",
+      "Julien Prodhon"
+    ],
+    "year": 2026,
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS)",
+    "abstract": "LOTUSim is an open-source, real-time maritime simulator supporting multi-user, human-in-the-loop interaction across aerial, surface, and underwater robotic systems. It combines a distributed ROS2/Gazebo/Unity architecture with an Ekman-inspired underwater current model, validated against ocean reanalysis data, to support training and mission rehearsal for coordinated naval-style operations.",
+    "tags": ["maritime robotics", "multi-agent simulation", "human-in-the-loop", "underwater currents"],
+    "pdfUrl": "/publications/lotusim-iros2026.pdf",
+    "repoUrl": "https://github.com/IRL-Crossing-CNRS/LOTUSim",
+    "featured": true
+  }
+]

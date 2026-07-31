@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <meta
+      name="description"
+      content="Publication summaries from IRL CROSSING CNRS, the French-Australian laboratory for humans-autonomous agents teaming."
+    />
+    <title>IRL CROSSING - Publications</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      // Decode the path stashed by public/404.html (spa-github-pages
+      // redirect trick) before the router mounts, then clean up the URL.
+      (function () {
+        var redirect = new URLSearchParams(window.location.search).get('redirect');
+        if (redirect) {
+          window.history.replaceState(null, '', redirect);
+        }
+      })();
+    </script>
+
+    <script>
+      // Applied before paint to avoid a light-mode flash on load.
+      (function () {
+        var stored = localStorage.getItem('irl-crossing-theme');
+        if (stored === 'dark') {
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
