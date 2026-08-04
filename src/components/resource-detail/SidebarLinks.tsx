@@ -1,9 +1,10 @@
+import { ExternalLink as ExternalLinkIcon } from 'lucide-react';
 import type { ComponentType } from 'react';
 
 interface LinkItem {
   href?: string;
   label: string;
-  icon: ComponentType<{ size?: number }>;
+  icon?: ComponentType<{ size?: number }>;
 }
 
 export default function SidebarLinks({ links }: { links: LinkItem[] }) {
@@ -11,7 +12,7 @@ export default function SidebarLinks({ links }: { links: LinkItem[] }) {
 
   return (
     <div className="space-y-2">
-      {items.map(({ href, label, icon: Icon }) => (
+      {items.map(({ href, label, icon: Icon = ExternalLinkIcon }) => (
         <a
           key={label}
           href={href}
