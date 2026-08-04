@@ -20,5 +20,24 @@
     "pdfUrl": "/resources/lotusim-iros2026.pdf",
     "repoUrl": "https://github.com/IRL-Crossing-CNRS/LOTUSim",
     "arxivUrl": "https://arxiv.org/abs/2607.03072"
+  },
+  {
+    "slug": "lotusim-energy-iros2026",
+    "title": "LOTUSim-Energy: A Maritime Simulator for Human-Drone Interaction in Autonomous Offshore Operation & Maintenance",
+    "type": ["paper"],
+    "authors": [
+      { "name": "Juliette Grosset", "url": "https://scholar.google.com/citations?user=sf6Hqf0AAAAJ&hl=en" },
+      { "name": "Marie Dubromel", "url": "https://www.linkedin.com/in/marie-dubromel-922150221/?locale=en" },
+      { "name": "Hélène Lechêne", "url": "https://scholar.google.com/citations?user=B21SMLgAAAAJ&hl=en" },
+      { "name": "Quentin Arzel", "url": "https://www.linkedin.com/in/quentin-arzel-bbb5941a6/" },
+      { "name": "Cédric Buche", "url": "https://cedricbuche.github.io/" }
+    ],
+    "affiliations": ["CROSSING IRL 2010, CNRS"],
+    "year": 2026,
+    "venue": "IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS) Workshop",
+    "abstract": "LOTUSim-Energy is a real-time maritime simulator for multi-domain human-drone interaction in offshore wind operation and maintenance. It unifies heterogeneous unmanned vehicles (UAVs, USVs, AUVs, ROVs) within a distributed architecture coupling environmental forcing (wind, waves, currents), immersive desktop/VR supervision, energy-aware battery modeling, and fault-detection pipelines, demonstrated on a multi-domain inspection scenario for offshore wind turbine monopile and transition-piece structures.",
+    "tags": ["offshore wind O&M", "multi-domain simulation", "human-in-the-loop", "energy-aware planning"],
+    "pdfUrl": "/resources/lotusim-energy-iros2026.pdf",
+    "repoUrl": "https://github.com/IRL-Crossing-CNRS/LOTUSim-Energy"
   }
 ]

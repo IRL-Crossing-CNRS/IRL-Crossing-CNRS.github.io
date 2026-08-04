@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { ArrowLeft, FileText, PlayCircle } from 'lucide-react';
+import { ArrowLeft, ExternalLink, FileText, PlayCircle } from 'lucide-react';
 import type { ComponentType } from 'react';
 import { Link } from 'react-router-dom';
 import { EASE_REFINED } from '../../lib/motion';
@@ -12,6 +12,12 @@ interface HeroLink {
   icon: ComponentType<{ size?: number }>;
 }
 
+export interface ExtraLink {
+  href: string;
+  label: string;
+  icon?: ComponentType<{ size?: number }>;
+}
+
 export default function ResourceHero({
   eyebrow,
   title,
@@ -21,6 +27,7 @@ export default function ResourceHero({
   repoUrl,
   arxivUrl,
   videoUrl,
+  extraLinks,
 }: {
   eyebrow: string;
   title: string;
@@ -30,12 +37,14 @@ export default function ResourceHero({
   repoUrl?: string;
   arxivUrl?: string;
   videoUrl?: string;
+  extraLinks?: ExtraLink[];
 }) {
   const allLinks: HeroLink[] = [
     { href: pdfUrl, label: 'Paper (PDF)', icon: FileText },
     { href: arxivUrl, label: 'arXiv', icon: ArxivIcon },
     { href: videoUrl, label: 'Video', icon: PlayCircle },
     { href: repoUrl, label: 'Code', icon: GithubIcon },
+    ...(extraLinks ?? []).map((link) => ({ ...link, icon: link.icon ?? ExternalLink })),
   ];
   const links = allLinks.filter((link): link is HeroLink & { href: string } => Boolean(link.href));
 
