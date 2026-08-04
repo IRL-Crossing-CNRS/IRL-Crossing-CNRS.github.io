@@ -1,5 +1,5 @@
-import { FileText, PlayCircle, Presentation } from 'lucide-react';
-import { GithubIcon } from '../../components/icons';
+import { FileText, Presentation } from 'lucide-react';
+import { GithubIcon, YoutubeIcon } from '../../components/icons';
 import CitationBlock from '../../components/resource-detail/CitationBlock';
 import Figure from '../../components/resource-detail/Figure';
 import ResourceHero from '../../components/resource-detail/ResourceHero';
@@ -54,7 +54,7 @@ export default function LotuSimEnergyIros2026() {
 
   const sidebarLinks = [
     { href: resource.pdfUrl, label: 'Paper (PDF)', icon: FileText },
-    { href: VIDEO_URL, label: 'Video', icon: PlayCircle },
+    { href: VIDEO_URL, label: 'Video', icon: YoutubeIcon },
     { href: resource.repoUrl, label: 'Code', icon: GithubIcon },
     { href: WORKSHOP_URL, label: 'Workshop', icon: Presentation },
   ];

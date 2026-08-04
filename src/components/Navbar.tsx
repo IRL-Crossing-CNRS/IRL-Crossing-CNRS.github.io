@@ -7,12 +7,13 @@ import logoLight from '../assets/logo/crossing-wordmark-light.png';
 import { useSectionNavItems } from '../context/SectionNavContext';
 import { useActiveSection } from '../hooks/useActiveSection';
 import { EASE_REFINED } from '../lib/motion';
-import { GithubIcon, LinkedinIcon } from './icons';
+import { GithubIcon, LinkedinIcon, YoutubeIcon } from './icons';
 import ThemeToggle from './ThemeToggle';
 
 const EXTERNAL_LINKS = [
   { href: 'https://crossing.cnrs.fr/', label: 'Official IRL CROSSING CNRS website', icon: Globe },
   { href: 'https://github.com/IRL-Crossing-CNRS', label: 'GitHub organization', icon: GithubIcon },
+  { href: 'https://www.youtube.com/@IRL_Crossing', label: 'Youtube channel', icon: YoutubeIcon },
   { href: 'https://www.linkedin.com/in/irl-crossing-b27557281/', label: 'LinkedIn', icon: LinkedinIcon },
 ];
 
