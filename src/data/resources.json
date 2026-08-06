@@ -5,10 +5,10 @@
     "type": ["paper"],
     "authors": [
       { "name": "Cédric Buche", "url": "https://cedricbuche.github.io/", "affiliations": [1, 3] },
-      { "name": "Juliette Grosset", "url": "https://scholar.google.com/citations?user=sf6Hqf0AAAAJ&hl=en", "affiliations": [1, 2] },
-      { "name": "Hélène Lechêne", "url": "https://scholar.google.com/citations?user=B21SMLgAAAAJ&hl=en", "affiliations": [2] },
-      { "name": "Marie Dubromel", "url": "https://www.linkedin.com/in/marie-dubromel-922150221/?locale=en", "affiliations": [1, 2] },
-      { "name": "Pierig Havez-Bodivit", "url": "https://www.linkedin.com/in/pierighavez-bodivit/?locale=en", "affiliations": [2] },
+      { "name": "Juliette Grosset", "url": "https://scholar.google.com/citations?user=sf6Hqf0AAAAJ", "affiliations": [1, 2] },
+      { "name": "Hélène Lechêne", "url": "https://scholar.google.com/citations?user=B21SMLgAAAAJ", "affiliations": [2] },
+      { "name": "Marie Dubromel", "url": "https://www.linkedin.com/in/marie-dubromel-922150221/", "affiliations": [1, 2] },
+      { "name": "Pierig Havez-Bodivit", "url": "https://www.linkedin.com/in/pierighavez-bodivit/", "affiliations": [2] },
       { "name": "Malcom Neo", "url": "https://www.linkedin.com/in/malcolmneo/", "affiliations": [2] },
       { "name": "Julien Prodhon", "url": "https://github.com/julienprodhon", "affiliations": [2] }
     ],
@@ -26,9 +26,9 @@
     "title": "LOTUSim-Energy: A Maritime Simulator for Human-Drone Interaction in Autonomous Offshore Operation & Maintenance",
     "type": ["paper"],
     "authors": [
-      { "name": "Juliette Grosset", "url": "https://scholar.google.com/citations?user=sf6Hqf0AAAAJ&hl=en", "affiliations": [1, 2] },
-      { "name": "Marie Dubromel", "url": "https://www.linkedin.com/in/marie-dubromel-922150221/?locale=en", "affiliations": [1, 2] },
-      { "name": "Hélène Lechêne", "url": "https://scholar.google.com/citations?user=B21SMLgAAAAJ&hl=en", "affiliations": [1, 2] },
+      { "name": "Juliette Grosset", "url": "https://scholar.google.com/citations?user=sf6Hqf0AAAAJ", "affiliations": [1, 2] },
+      { "name": "Marie Dubromel", "url": "https://www.linkedin.com/in/marie-dubromel-922150221/", "affiliations": [1, 2] },
+      { "name": "Hélène Lechêne", "url": "https://scholar.google.com/citations?user=B21SMLgAAAAJ", "affiliations": [1, 2] },
       { "name": "Quentin Arzel", "url": "https://www.linkedin.com/in/quentin-arzel-bbb5941a6/", "affiliations": [1, 2] },
       { "name": "Cédric Buche", "url": "https://cedricbuche.github.io/", "affiliations": [1, 3] }
     ],
@@ -39,5 +39,31 @@
     "tags": ["offshore wind O&M", "multi-domain simulation", "human-in-the-loop", "energy-aware planning"],
     "pdfUrl": "/resources/lotusim-energy-iros2026.pdf",
     "repoUrl": "https://github.com/IRL-Crossing-CNRS/LOTUSim-Energy"
+  },
+  {
+    "slug": "robobreizh-robocup2023",
+    "title": "RoboCup@Home SSPL Champion 2023: RoboBreizh, a Fully Embedded Approach",
+    "type": ["paper"],
+    "authors": [
+      { "name": "Cédric Buche", "url": "https://cedricbuche.github.io/", "affiliations": [1, 2, 3] },
+      { "name": "Maëlic Neau", "url": "https://scholar.google.com/citations?user=8afgL2sAAAAJ", "affiliations": [1, 4, 5, 2] },
+      { "name": "Thomas Ung", "url": "https://github.com/tomkimsour", "affiliations": [1] },
+      { "name": "Louis Li", "url": "https://www.linkedin.com/in/louis-li-ai-ds/", "affiliations": [1] },
+      { "name": "Sinuo Wang", "url": "https://scholar.google.com/citations?user=COYsHiwAAAAJ", "affiliations": [1] },
+      { "name": "Cédric Le Bono", "url": "https://scholar.google.co.uk/scholar?as_q=&num=10&btnG=Search+Scholar&as_epq=&as_oq=&as_eq=&as_occt=any&as_sauthors=%22C%C3%A9dric%20Le%20Bono%22&as_publication=&as_ylo=&as_yhi=&as_allsubj=all", "affiliations": [4] }
+    ],
+    "affiliations": [
+      "CROSSING IRL 2010, CNRS, Adelaide, Australia",
+      "ENIB, Plouzané, France",
+      "ENIB/Naval Group Pacific, Plouzané, France",
+      "Lab-STICC, CNRS UMR 6285, Brest, France",
+      "College of Science and Engineering, Flinders University of South Australia, Adelaide, Australia"
+    ],
+    "year": 2023,
+    "venue": "RoboCup 2023: Robot World Cup XXVI (Lecture Notes in Computer Science)",
+    "abstract": "This paper presents the approach employed by the team RoboBreizh to win the championship in the 2023 RoboCup@Home Social Standard Platform League (SSPL). RoboBreizh decided to limit itself to an entirely embedded system with no connection to the internet and external devices. This article describes the design of embedded solutions including the global architecture, perception, navigation, interaction, reasoning and digital twin.",
+    "tags": ["RoboCup@Home", "Embedded System", "Social Robotics", "Service Robotics", "Human-Robot Interaction"],
+    "resourceUrl": "https://doi.org/10.1007/978-3-031-55015-7_31",
+    "repoUrl": "https://github.com/RoboBreizh-RoboCup-Home"
   }
 ]
