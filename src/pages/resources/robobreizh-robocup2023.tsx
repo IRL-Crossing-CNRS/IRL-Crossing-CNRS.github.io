@@ -31,7 +31,7 @@ const BIBTEX = [
   'booktitle = {RoboCup 2023: Robot World Cup XXVI},',
   'series    = {Lecture Notes in Computer Science},',
   'pages     = {374--385},',
-  'year      = {2024},',
+  'year      = {2023},',
   'publisher = {Springer}',
   '}'
 ].join('\n');
@@ -75,20 +75,16 @@ export default function RoboBreizhRoboCup2023() {
 
           <Section id="team" title="RoboBreizh">
             <p>
-              RoboBreizh is a French RoboCup@Home team based at the{' '}
-              <strong className="font-semibold text-foreground">
-                Centre Européen de Réalité Virtuelle (CERV)
-              </strong>{' '}
-              in Plouzané, France, affiliated with ENIB, Université Bretagne Sud, Lab-STICC, and
-              CROSSING IRL 2010, CNRS. Competing with the Pepper robot platform, the team focuses on{' '}
+              RoboBreizh is a French RoboCup@Home team based at{' '}
+              <strong className="font-semibold text-foreground">CROSSING IRL 2010, CNRS</strong>.
+              Competing with the Pepper robot platform, the team focuses on{' '}
               <strong className="font-semibold text-foreground">embedded artificial intelligence</strong>
               , running perception, navigation, interaction and reasoning fully onboard rather than
               relying on cloud-connected services.
             </p>
             <p>
               RoboBreizh won the RoboCup@Home SSPL world championship in{' '}
-              <strong className="font-semibold text-foreground">2020, 2022, and 2023</strong>, with a
-              third-place finish in 2021.
+              <strong className="font-semibold text-foreground">2022 and 2023</strong>.
             </p>
           </Section>
 
