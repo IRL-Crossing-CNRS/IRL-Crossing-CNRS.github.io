@@ -4,13 +4,13 @@
     "title": "LOTUSim: Multi-Domain Simulator for Marine Robotics",
     "type": ["paper"],
     "authors": [
-      { "name": "Cédric Buche", "url": "https://cedricbuche.github.io/", "affiliations": [1, 3] },
-      { "name": "Juliette Grosset", "url": "https://scholar.google.com/citations?user=sf6Hqf0AAAAJ", "affiliations": [1, 2] },
-      { "name": "Hélène Lechêne", "url": "https://scholar.google.com/citations?user=B21SMLgAAAAJ", "affiliations": [2] },
-      { "name": "Marie Dubromel", "url": "https://www.linkedin.com/in/marie-dubromel-922150221/", "affiliations": [1, 2] },
-      { "name": "Pierig Havez-Bodivit", "url": "https://www.linkedin.com/in/pierighavez-bodivit/", "affiliations": [2] },
-      { "name": "Malcom Neo", "url": "https://www.linkedin.com/in/malcolmneo/", "affiliations": [2] },
-      { "name": "Julien Prodhon", "url": "https://github.com/julienprodhon", "affiliations": [2] }
+      { "name": "Cédric Buche", "affiliations": [1, 3] },
+      { "name": "Juliette Grosset", "affiliations": [1, 2] },
+      { "name": "Hélène Lechêne", "affiliations": [2] },
+      { "name": "Marie Dubromel", "affiliations": [1, 2] },
+      { "name": "Pierig Havez-Bodivit", "affiliations": [2] },
+      { "name": "Malcom Neo", "affiliations": [2] },
+      { "name": "Julien Prodhon", "affiliations": [2] }
     ],
     "affiliations": ["CROSSING IRL 2010, CNRS", "Naval Group, France", "IMT Atlantique"],
     "year": 2026,
@@ -26,11 +26,11 @@
     "title": "LOTUSim-Energy: A Maritime Simulator for Human-Drone Interaction in Autonomous Offshore Operation & Maintenance",
     "type": ["paper"],
     "authors": [
-      { "name": "Juliette Grosset", "url": "https://scholar.google.com/citations?user=sf6Hqf0AAAAJ", "affiliations": [1, 2] },
-      { "name": "Marie Dubromel", "url": "https://www.linkedin.com/in/marie-dubromel-922150221/", "affiliations": [1, 2] },
-      { "name": "Hélène Lechêne", "url": "https://scholar.google.com/citations?user=B21SMLgAAAAJ", "affiliations": [1, 2] },
-      { "name": "Quentin Arzel", "url": "https://www.linkedin.com/in/quentin-arzel-bbb5941a6/", "affiliations": [1, 2] },
-      { "name": "Cédric Buche", "url": "https://cedricbuche.github.io/", "affiliations": [1, 3] }
+      { "name": "Juliette Grosset", "affiliations": [1, 2] },
+      { "name": "Marie Dubromel", "affiliations": [1, 2] },
+      { "name": "Hélène Lechêne", "affiliations": [1, 2] },
+      { "name": "Quentin Arzel", "affiliations": [1, 2] },
+      { "name": "Cédric Buche", "affiliations": [1, 3] }
     ],
     "affiliations": ["CROSSING IRL 2010, CNRS", "Naval Group, France", "IMT Atlantique"],
     "year": 2026,
@@ -45,12 +45,12 @@
     "title": "RoboCup@Home SSPL Champion 2023: RoboBreizh, a Fully Embedded Approach",
     "type": ["paper"],
     "authors": [
-      { "name": "Cédric Buche", "url": "https://cedricbuche.github.io/", "affiliations": [1, 2, 3] },
-      { "name": "Maëlic Neau", "url": "https://scholar.google.com/citations?user=8afgL2sAAAAJ", "affiliations": [1, 4, 5, 2] },
-      { "name": "Thomas Ung", "url": "https://github.com/tomkimsour", "affiliations": [1] },
-      { "name": "Louis Li", "url": "https://www.linkedin.com/in/louis-li-ai-ds/", "affiliations": [1] },
-      { "name": "Sinuo Wang", "url": "https://scholar.google.com/citations?user=COYsHiwAAAAJ", "affiliations": [1] },
-      { "name": "Cédric Le Bono", "url": "https://scholar.google.co.uk/scholar?as_q=&num=10&btnG=Search+Scholar&as_epq=&as_oq=&as_eq=&as_occt=any&as_sauthors=%22C%C3%A9dric%20Le%20Bono%22&as_publication=&as_ylo=&as_yhi=&as_allsubj=all", "affiliations": [4] }
+      { "name": "Cédric Buche", "affiliations": [1, 2, 3] },
+      { "name": "Maëlic Neau", "affiliations": [1, 4, 5, 2] },
+      { "name": "Thomas Ung", "affiliations": [1] },
+      { "name": "Louis Li", "affiliations": [1] },
+      { "name": "Sinuo Wang", "affiliations": [1] },
+      { "name": "Cédric Le Bono", "affiliations": [4] }
     ],
     "affiliations": [
       "CROSSING IRL 2010, CNRS, Adelaide, Australia",
@@ -71,15 +71,15 @@
     "title": "TrustedNews: Trustworthy AI for the written Press",
     "type": ["project"],
     "authors": [
-      { "name": "IRL Crossing (Paul Égré, coordinator)", "url": "https://crossing.cnrs.fr/" },
-      { "name": "IRISA", "url": "https://www.irisa.fr/" },
-      { "name": "LIP6", "url": "https://www.lip6.fr/" },
-      { "name": "ENSTA Ouest-France", "url": "https://www.ensta.fr/" },
-      { "name": "Airbus Defense and Space", "url": "https://www.airbus.com/" }
+      { "name": "IRL Crossing (Paul Égré, coordinator)" },
+      { "name": "IRISA" },
+      { "name": "LIP6" },
+      { "name": "Ouest-France" },
+      { "name": "Airbus Defense and Space" }
     ],
     "year": 2026,
     "venue": "ANR-funded research project (2026-2028)",
-    "abstract": "TrustedNews is a research project on trustworthy AI for the written press, funded by AID and operated by ANR. The consortium links six partner institutions and involves AI research scientists and digital media practitioners working on the analysis of informational quality in press documents. Our main research questions include: How objective or subjective is a press report? How vague or precise is it? Was the document AI generated? Which parts of a document are particularly checkworthy? Should the text be qualified as fake news and on what basis? Is the text driven by a specific agenda or framing, such as propagandist motives, or is the intention to transparently inform? How can the press make responsible use of generative AI? We use neuro-symbolic methods to answer these questions, comparing corpora coming from different press groups and sources. We take advantage of the large data bank of the SIPA-Ouest France group, and rely on the expertise of journalists to define analytics with humans in the loop.",
+    "abstract": "TrustedNews is a research project on trustworthy AI for the written press, funded by AID and operated by ANR. The consortium links five partner institutions and involves AI research scientists and digital media practitioners working on the analysis of informational quality in press documents. Our main research questions include: How objective or subjective is a press report? How vague or precise is it? Was the document AI generated? Which parts of a document are particularly checkworthy? Should the text be qualified as fake news and on what basis? Is the text driven by a specific agenda or framing, such as propagandist motives, or is the intention to transparently inform? How can the press make responsible use of generative AI? We use neuro-symbolic methods to answer these questions, comparing corpora coming from different press groups and sources. We take advantage of the large data bank of the SIPA-Ouest France group, and rely on the expertise of journalists to define analytics with humans in the loop.",
     "tags": ["AI Trust and Safety", "Written Press", "Informational Quality", "Disinformation", "Fake News", "Propaganda", "Media literacy"],
     "resourceUrl": "https://trustednews.fr/"
   }

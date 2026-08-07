@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { ArrowLeft, ExternalLink, FileText, PlayCircle } from 'lucide-react';
 import type { ComponentType } from 'react';
 import { Link } from 'react-router-dom';
+import { getAuthorUrl } from '../../lib/authors';
 import { EASE_REFINED } from '../../lib/motion';
 import type { Author } from '../../types/resource';
 import { GithubIcon, ArxivIcon } from '../icons';
@@ -74,26 +75,29 @@ export default function ResourceHero({
       </h1>
 
       <p className="mt-4 text-sm leading-relaxed text-muted">
-        {authors.map((author, index) => (
-          <span key={author.name}>
-            {author.url ? (
-              <a
-                href={author.url}
-                target="_blank"
-                rel="noreferrer noopener"
-                className="text-foreground underline underline-offset-2 transition-colors duration-200 hover:text-accent"
-              >
-                {author.name}
-              </a>
-            ) : (
-              <span className="text-foreground">{author.name}</span>
-            )}
-            {author.affiliations && author.affiliations.length > 0 && (
-              <sup className="ml-0.5">{author.affiliations.join(',')}</sup>
-            )}
-            {index < authors.length - 1 && ', '}
-          </span>
-        ))}
+        {authors.map((author, index) => {
+          const url = author.url ?? getAuthorUrl(author.name);
+          return (
+            <span key={author.name}>
+              {url ? (
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noreferrer noopener"
+                  className="text-foreground underline underline-offset-2 transition-colors duration-200 hover:text-accent"
+                >
+                  {author.name}
+                </a>
+              ) : (
+                <span className="text-foreground">{author.name}</span>
+              )}
+              {author.affiliations && author.affiliations.length > 0 && (
+                <sup className="ml-0.5">{author.affiliations.join(',')}</sup>
+              )}
+              {index < authors.length - 1 && ', '}
+            </span>
+          );
+        })}
       </p>
       <p className="mt-1 text-xs text-muted">
         {affiliations.map((affiliation, index) => (

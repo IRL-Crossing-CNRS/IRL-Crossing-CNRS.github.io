@@ -13,7 +13,7 @@ const resource = (resourcesData as Resource[]).find((p) => p.slug === 'trustedne
 
 const SITE_URL = 'https://trustednews.fr/';
 
-const PARTNERS = ['IRISA', 'LIP6', 'ENSTA Ouest-France', 'Airbus Defense and Space'];
+const PARTNERS = ['IRISA', 'LIP6', 'Ouest-France', 'Airbus Defense and Space'];
 
 const NAV_ITEMS = [
   { id: 'abstract', label: 'Abstract' },
@@ -27,7 +27,7 @@ const PLAIN_CITATION = 'TrustedNews (ANR-25-ASM2-0003-01), 2026-2028.';
 const BIBTEX = [
   '@misc{trustednews2026,',
   'title        = {TrustedNews: Trustworthy AI for the written Press},',
-  'author       = {{IRL Crossing (Paul {\\\'E}gr{\\\'e}, coordinator)} and {IRISA} and {LIP6} and {ENSTA Ouest-France} and {Airbus Defense and Space}},',
+  'author       = {{IRL Crossing (Paul {\\\'E}gr{\\\'e}, coordinator)} and {IRISA} and {LIP6} and {Ouest-France} and {Airbus Defense and Space}},',
   'year         = {2026},',
   'note         = {ANR-25-ASM2-0003-01, 2026--2028},',
   'howpublished = {\\url{https://trustednews.fr/}}',
