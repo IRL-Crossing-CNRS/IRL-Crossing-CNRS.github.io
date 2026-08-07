@@ -1,0 +1,22 @@
+[
+  {
+    "slug": "lotusim",
+    "name": "LOTUSim",
+    "description": "An open-source, real-time maritime simulator for human-in-the-loop robotics research, supporting multi-user interaction across aerial, surface, and underwater robotic systems for coordinated naval-style operations."
+  },
+  {
+    "slug": "lotusim-energy",
+    "name": "LOTUSim-Energy",
+    "description": "A real-time maritime simulator for multi-domain human-drone interaction in offshore wind energy operation and maintenance, unifying heterogeneous unmanned vehicles within a distributed architecture for autonomous inspection and fault detection."
+  },
+  {
+    "slug": "ai-trust-and-safety",
+    "name": "AI Trust and Safety",
+    "description": "Research on trustworthy and safe AI systems, including the informational quality and reliability of AI-assisted content in the written press."
+  },
+  {
+    "slug": "robocup",
+    "name": "RoboCup",
+    "description": "IRL CROSSING's participation in the RoboCup@Home competition through the RoboBreizh team, focused on fully embedded social and service robotics."
+  }
+]

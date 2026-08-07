@@ -9,6 +9,7 @@ import SidebarLinks from '../../components/resource-detail/SidebarLinks';
 import TableOfContents from '../../components/resource-detail/TableOfContents';
 import { useRegisterSectionNav } from '../../context/SectionNavContext';
 import resourcesData from '../../data/resources.json';
+import { getProject, getProjectResources } from '../../lib/projects';
 import type { Resource } from '../../types/resource';
 
 import architectureImg from '../../assets/resources/lotusim-energy-iros2026/architecture.png';
@@ -22,6 +23,8 @@ import batteryMonitoringImg from '../../assets/resources/lotusim-energy-iros2026
 import vrElectricityImg from '../../assets/resources/lotusim-energy-iros2026/vr-electricity-1.jpg';
 
 const resource = (resourcesData as Resource[]).find((p) => p.slug === 'lotusim-energy-iros2026')!;
+const project = getProject(resource.project);
+const projectResourceCount = getProjectResources(resource.project).length;
 
 const VIDEO_URL = 'https://tinyurl.com/5ajb4thj';
 const WORKSHOP_URL = 'https://sites.google.com/view/aquasim-v2/';
@@ -68,6 +71,9 @@ export default function LotuSimEnergyIros2026() {
             title={resource.title}
             authors={resource.authors}
             affiliations={resource.affiliations ?? []}
+            projectSlug={project.slug}
+            projectName={project.name}
+            resourceCount={projectResourceCount}
             pdfUrl={resource.pdfUrl}
             repoUrl={resource.repoUrl}
             videoUrl={VIDEO_URL}

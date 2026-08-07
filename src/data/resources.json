@@ -2,6 +2,7 @@
   {
     "slug": "lotusim-iros2026",
     "title": "LOTUSim: Multi-Domain Simulator for Marine Robotics",
+    "project": "lotusim",
     "type": ["paper"],
     "authors": [
       { "name": "Cédric Buche", "affiliations": [1, 3] },
@@ -24,6 +25,7 @@
   {
     "slug": "lotusim-energy-iros2026",
     "title": "LOTUSim-Energy: A Maritime Simulator for Human-Drone Interaction in Autonomous Offshore Operation & Maintenance",
+    "project": "lotusim-energy",
     "type": ["paper"],
     "authors": [
       { "name": "Juliette Grosset", "affiliations": [1, 2] },
@@ -43,6 +45,7 @@
   {
     "slug": "robobreizh-robocup2023",
     "title": "RoboCup@Home SSPL Champion 2023: RoboBreizh, a Fully Embedded Approach",
+    "project": "robocup",
     "type": ["paper"],
     "authors": [
       { "name": "Cédric Buche", "affiliations": [1, 2, 3] },
@@ -69,7 +72,8 @@
   {
     "slug": "trustednews",
     "title": "TrustedNews: Trustworthy AI for the written Press",
-    "type": ["project"],
+    "project": "ai-trust-and-safety",
+    "type": ["overview"],
     "authors": [
       { "name": "IRL Crossing (Paul Égré, coordinator)" },
       { "name": "IRISA" },
@@ -80,7 +84,7 @@
     "year": 2026,
     "venue": "ANR-funded research project (2026-2028)",
     "abstract": "TrustedNews is a research project on trustworthy AI for the written press, funded by AID and operated by ANR. The consortium links five partner institutions and involves AI research scientists and digital media practitioners working on the analysis of informational quality in press documents. Our main research questions include: How objective or subjective is a press report? How vague or precise is it? Was the document AI generated? Which parts of a document are particularly checkworthy? Should the text be qualified as fake news and on what basis? Is the text driven by a specific agenda or framing, such as propagandist motives, or is the intention to transparently inform? How can the press make responsible use of generative AI? We use neuro-symbolic methods to answer these questions, comparing corpora coming from different press groups and sources. We take advantage of the large data bank of the SIPA-Ouest France group, and rely on the expertise of journalists to define analytics with humans in the loop.",
-    "tags": ["AI Trust and Safety", "Written Press", "Informational Quality", "Disinformation", "Fake News", "Propaganda", "Media literacy"],
+    "tags": ["Written Press", "Informational Quality", "Disinformation", "Fake News", "Propaganda", "Media literacy"],
     "resourceUrl": "https://trustednews.fr/"
   }
 ]

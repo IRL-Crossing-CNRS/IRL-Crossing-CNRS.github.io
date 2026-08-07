@@ -11,6 +11,7 @@ export type ResourceType = string;
 export interface Resource {
   slug: string;
   title: string;
+  project: string;
   type: ResourceType[];
   authors: Author[];
   affiliations?: string[];

@@ -8,9 +8,12 @@ import SidebarLinks from '../../components/resource-detail/SidebarLinks';
 import TableOfContents from '../../components/resource-detail/TableOfContents';
 import { useRegisterSectionNav } from '../../context/SectionNavContext';
 import resourcesData from '../../data/resources.json';
+import { getProject, getProjectResources } from '../../lib/projects';
 import type { Resource } from '../../types/resource';
 
 const resource = (resourcesData as Resource[]).find((p) => p.slug === 'robobreizh-robocup2023')!;
+const project = getProject(resource.project);
+const projectResourceCount = getProjectResources(resource.project).length;
 
 const TEAM_URL = 'https://web.enib.fr/~robobreizh/src/en/links_en.html';
 const VIDEO_URL = 'https://www.youtube.com/watch?v=g230jmHO40M';
@@ -55,6 +58,9 @@ export default function RoboBreizhRoboCup2023() {
             title={resource.title}
             authors={resource.authors}
             affiliations={resource.affiliations ?? []}
+            projectSlug={project.slug}
+            projectName={project.name}
+            resourceCount={projectResourceCount}
             repoUrl={resource.repoUrl}
             videoUrl={VIDEO_URL}
             extraLinks={[{ href: resource.resourceUrl!, label: 'Paper (DOI)', icon: FileText }]}
