@@ -2,7 +2,12 @@
   {
     "slug": "lotusim",
     "name": "LOTUSim",
-    "description": "Real-time, multi-domain maritime simulators for human-in-the-loop robotics research, spanning naval-style multi-vehicle operations and human-drone interaction in offshore wind energy operation and maintenance."
+    "description": "An open-source, real-time maritime simulator for human-in-the-loop robotics research, supporting multi-user interaction across aerial, surface, and underwater robotic systems for coordinated naval-style operations."
+  },
+  {
+    "slug": "lotusim-energy",
+    "name": "LOTUSim-Energy",
+    "description": "A real-time maritime simulator for multi-domain human-drone interaction in offshore wind energy operation and maintenance, unifying heterogeneous unmanned vehicles within a distributed architecture for autonomous inspection and fault detection."
   },
   {
     "slug": "ai-trust-and-safety",

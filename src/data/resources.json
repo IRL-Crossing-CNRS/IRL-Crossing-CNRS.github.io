@@ -25,7 +25,7 @@
   {
     "slug": "lotusim-energy-iros2026",
     "title": "LOTUSim-Energy: A Maritime Simulator for Human-Drone Interaction in Autonomous Offshore Operation & Maintenance",
-    "project": "lotusim",
+    "project": "lotusim-energy",
     "type": ["paper"],
     "authors": [
       { "name": "Juliette Grosset", "affiliations": [1, 2] },

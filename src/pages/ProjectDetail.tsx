@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion';
 import { ArrowLeft, SearchX } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
-import { Link, Navigate, useParams } from 'react-router-dom';
+import { Link, Navigate, useParams, useSearchParams } from 'react-router-dom';
 import ResourceCard from '../components/ResourceCard';
 import ResourceListView from '../components/resource-list/ResourceListView';
 import ResourceToolbar, {
@@ -11,6 +11,7 @@ import ResourceToolbar, {
 import projectsData from '../data/projects.json';
 import resourcesData from '../data/resources.json';
 import { EASE_REFINED } from '../lib/motion';
+import { resourceMatchesQuery } from '../lib/resourceSearch';
 import type { Project } from '../types/project';
 import type { Resource, ResourceType } from '../types/resource';
 
@@ -37,7 +38,8 @@ export default function ProjectDetail() {
     [allResources, slug],
   );
 
-  const [query, setQuery] = useState('');
+  const [searchParams] = useSearchParams();
+  const [query, setQuery] = useState(() => searchParams.get('q') ?? '');
   const [selectedTypes, setSelectedTypes] = useState<ResourceType[]>([]);
   const [sortBy, setSortBy] = useState<SortOption>('newest');
   const [view, setView] = useState<ViewMode>(getInitialView);
@@ -62,25 +64,11 @@ export default function ProjectDetail() {
   }, [resources]);
 
   const filtered = useMemo(() => {
-    const normalizedQuery = query.trim().toLowerCase();
-
     const matches = resources.filter((resource) => {
       if (selectedTypes.length > 0 && !resource.type.some((type) => selectedTypes.includes(type))) {
         return false;
       }
-      if (!normalizedQuery) return true;
-
-      const haystack = [
-        resource.title,
-        resource.abstract,
-        resource.venue,
-        ...resource.tags,
-        ...resource.authors.map((author) => author.name),
-      ]
-        .join(' ')
-        .toLowerCase();
-
-      return haystack.includes(normalizedQuery);
+      return resourceMatchesQuery(resource, query);
     });
 
     return matches.sort((a, b) => {
