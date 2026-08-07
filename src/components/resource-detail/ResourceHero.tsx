@@ -81,7 +81,7 @@ export default function ResourceHero({
                 href={author.url}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="text-foreground transition-colors duration-200 hover:text-accent"
+                className="text-foreground underline underline-offset-2 transition-colors duration-200 hover:text-accent"
               >
                 {author.name}
               </a>

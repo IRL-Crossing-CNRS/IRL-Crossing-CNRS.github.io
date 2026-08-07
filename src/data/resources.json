@@ -65,5 +65,22 @@
     "tags": ["RoboCup@Home", "Embedded System", "Social Robotics", "Service Robotics", "Human-Robot Interaction"],
     "resourceUrl": "https://doi.org/10.1007/978-3-031-55015-7_31",
     "repoUrl": "https://github.com/RoboBreizh-RoboCup-Home"
+  },
+  {
+    "slug": "trustednews",
+    "title": "TrustedNews: Trustworthy AI for the written Press",
+    "type": ["project"],
+    "authors": [
+      { "name": "IRL Crossing (Paul Égré, coordinator)", "url": "https://crossing.cnrs.fr/" },
+      { "name": "IRISA", "url": "https://www.irisa.fr/" },
+      { "name": "LIP6", "url": "https://www.lip6.fr/" },
+      { "name": "ENSTA Ouest-France", "url": "https://www.ensta.fr/" },
+      { "name": "Airbus Defense and Space", "url": "https://www.airbus.com/" }
+    ],
+    "year": 2026,
+    "venue": "ANR-funded research project (2026-2028)",
+    "abstract": "TrustedNews is a research project on trustworthy AI for the written press, funded by AID and operated by ANR. The consortium links six partner institutions and involves AI research scientists and digital media practitioners working on the analysis of informational quality in press documents. Our main research questions include: How objective or subjective is a press report? How vague or precise is it? Was the document AI generated? Which parts of a document are particularly checkworthy? Should the text be qualified as fake news and on what basis? Is the text driven by a specific agenda or framing, such as propagandist motives, or is the intention to transparently inform? How can the press make responsible use of generative AI? We use neuro-symbolic methods to answer these questions, comparing corpora coming from different press groups and sources. We take advantage of the large data bank of the SIPA-Ouest France group, and rely on the expertise of journalists to define analytics with humans in the loop.",
+    "tags": ["AI Trust and Safety", "Written Press", "Informational Quality", "Disinformation", "Fake News", "Propaganda", "Media literacy"],
+    "resourceUrl": "https://trustednews.fr/"
   }
 ]
