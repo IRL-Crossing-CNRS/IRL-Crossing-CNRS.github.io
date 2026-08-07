@@ -7,9 +7,12 @@ import SidebarLinks from '../../components/resource-detail/SidebarLinks';
 import TableOfContents from '../../components/resource-detail/TableOfContents';
 import { useRegisterSectionNav } from '../../context/SectionNavContext';
 import resourcesData from '../../data/resources.json';
+import { getProject, getProjectResources } from '../../lib/projects';
 import type { Resource } from '../../types/resource';
 
 const resource = (resourcesData as Resource[]).find((p) => p.slug === 'trustednews')!;
+const project = getProject(resource.project);
+const projectResourceCount = getProjectResources(resource.project).length;
 
 const SITE_URL = 'https://trustednews.fr/';
 
@@ -48,6 +51,9 @@ export default function TrustedNews() {
             title={resource.title}
             authors={resource.authors}
             affiliations={[]}
+            projectSlug={project.slug}
+            projectName={project.name}
+            resourceCount={projectResourceCount}
             extraLinks={[{ href: SITE_URL, label: 'Project website', icon: ExternalLink }]}
           />
 

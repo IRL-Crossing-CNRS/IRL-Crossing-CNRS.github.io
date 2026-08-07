@@ -24,6 +24,9 @@ export default function ResourceHero({
   title,
   authors,
   affiliations,
+  projectSlug,
+  projectName,
+  resourceCount,
   pdfUrl,
   repoUrl,
   arxivUrl,
@@ -34,6 +37,9 @@ export default function ResourceHero({
   title: string;
   authors: Author[];
   affiliations: string[];
+  projectSlug: string;
+  projectName: string;
+  resourceCount: number;
   pdfUrl?: string;
   repoUrl?: string;
   arxivUrl?: string;
@@ -56,17 +62,21 @@ export default function ResourceHero({
       transition={{ duration: 0.5, ease: EASE_REFINED }}
       className="max-w-3xl pb-14"
     >
-      <div className="flex flex-row justify-start items-center gap-4">
+      <div className="flex flex-row flex-wrap items-center gap-x-4 gap-y-2">
         <Link
-          to="/"
+          to={`/projects/${projectSlug}`}
           className="inline-flex items-center gap-1.5 text-sm text-muted transition-colors duration-200 hover:text-accent"
         >
           <ArrowLeft size={14} />
-          All resources
+          {projectName}
         </Link>
 
         <span className="inline-flex items-center rounded-full border border-border px-3 py-1 text-xs text-muted">
           {eyebrow}
+        </span>
+
+        <span className="text-xs text-muted">
+          {resourceCount} resource{resourceCount === 1 ? '' : 's'} in this project
         </span>
       </div>
 

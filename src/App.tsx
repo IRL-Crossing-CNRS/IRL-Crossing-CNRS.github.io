@@ -8,7 +8,8 @@ import PageTransition from './components/PageTransition';
 import { ThemeProvider } from './context/ThemeContext';
 import { SectionNavProvider } from './context/SectionNavContext';
 import { resourcePages } from './data/resourcePages';
-import Home from './pages/Home';
+import ProjectDetail from './pages/ProjectDetail';
+import Projects from './pages/Projects';
 
 function ResourceDetailRoute() {
   const { slug } = useParams<{ slug: string }>();
@@ -36,7 +37,15 @@ function AnimatedRoutes() {
           path="/"
           element={
             <PageTransition>
-              <Home />
+              <Projects />
+            </PageTransition>
+          }
+        />
+        <Route
+          path="/projects/:slug"
+          element={
+            <PageTransition>
+              <ProjectDetail />
             </PageTransition>
           }
         />

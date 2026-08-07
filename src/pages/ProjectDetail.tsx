@@ -1,14 +1,17 @@
 import { motion } from 'framer-motion';
-import { SearchX } from 'lucide-react';
+import { ArrowLeft, SearchX } from 'lucide-react';
 import { useEffect, useMemo, useState } from 'react';
+import { Link, Navigate, useParams } from 'react-router-dom';
 import ResourceCard from '../components/ResourceCard';
 import ResourceListView from '../components/resource-list/ResourceListView';
 import ResourceToolbar, {
   type SortOption,
   type ViewMode,
 } from '../components/resource-list/ResourceToolbar';
+import projectsData from '../data/projects.json';
 import resourcesData from '../data/resources.json';
 import { EASE_REFINED } from '../lib/motion';
+import type { Project } from '../types/project';
 import type { Resource, ResourceType } from '../types/resource';
 
 const VIEW_STORAGE_KEY = 'irl-crossing-resource-view';
@@ -23,8 +26,16 @@ function getInitialView(): ViewMode {
   return window.localStorage.getItem(VIEW_STORAGE_KEY) === 'list' ? 'list' : 'grid';
 }
 
-export default function Home() {
-  const resources = resourcesData as Resource[];
+export default function ProjectDetail() {
+  const { slug } = useParams<{ slug: string }>();
+  const projects = projectsData as Project[];
+  const allResources = resourcesData as Resource[];
+
+  const project = projects.find((p) => p.slug === slug);
+  const resources = useMemo(
+    () => allResources.filter((r) => r.project === slug),
+    [allResources, slug],
+  );
 
   const [query, setQuery] = useState('');
   const [selectedTypes, setSelectedTypes] = useState<ResourceType[]>([]);
@@ -92,6 +103,10 @@ export default function Home() {
     setSelectedTypes([]);
   };
 
+  if (!project) {
+    return <Navigate to="/" replace />;
+  }
+
   return (
     <div className="mx-auto max-w-6xl px-6 py-16 sm:py-20">
       <motion.section
@@ -100,17 +115,24 @@ export default function Home() {
         transition={{ duration: 0.5, ease: EASE_REFINED }}
         className="mb-10 max-w-2xl"
       >
-        <span className="glass inline-flex items-center rounded-full border border-border px-3 py-1 text-xs text-muted">
-          {resources.length} resource{resources.length === 1 ? '' : 's'} indexed
-        </span>
+        <div className="flex items-center gap-3">
+          <Link
+            to="/"
+            className="inline-flex items-center gap-1.5 text-sm text-muted transition-colors duration-200 hover:text-accent"
+          >
+            <ArrowLeft size={14} />
+            All projects
+          </Link>
+
+          <span className="glass inline-flex items-center rounded-full border border-border px-3 py-1 text-xs text-muted">
+            {resources.length} resource{resources.length === 1 ? '' : 's'}
+          </span>
+        </div>
+
         <h1 className="mt-5 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl">
-          Resources
+          {project.name}
         </h1>
-        <p className="mt-4 text-base leading-relaxed text-muted">
-          A running index of research outputs from IRL CROSSING CNRS, the French-Australian
-          laboratory for humans-autonomous agents teaming. Each entry summarizes a resource and
-          links out to the full paper, code, and data.
-        </p>
+        <p className="mt-4 text-base leading-relaxed text-muted">{project.description}</p>
       </motion.section>
 
       <motion.div

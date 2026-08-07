@@ -10,6 +10,7 @@ import StatGrid from '../../components/resource-detail/StatGrid';
 import TableOfContents from '../../components/resource-detail/TableOfContents';
 import { useRegisterSectionNav } from '../../context/SectionNavContext';
 import resourcesData from '../../data/resources.json';
+import { getProject, getProjectResources } from '../../lib/projects';
 import type { Resource } from '../../types/resource';
 
 import architectureImg from '../../assets/resources/lotusim-iros2026/architecture.png';
@@ -20,6 +21,8 @@ import simToRealImg from '../../assets/resources/lotusim-iros2026/sim-to-real-te
 import vrInteractionImg from '../../assets/resources/lotusim-iros2026/vr-interaction.jpg';
 
 const resource = (resourcesData as Resource[]).find((p) => p.slug === 'lotusim-iros2026')!;
+const project = getProject(resource.project);
+const projectResourceCount = getProjectResources(resource.project).length;
 
 const VIDEO_ID = 'iXDz8ZqSpq4';
 const VIDEO_URL = `https://www.youtube.com/watch?v=${VIDEO_ID}`;
@@ -67,6 +70,9 @@ export default function LotuSimIros2026() {
             title={resource.title}
             authors={resource.authors}
             affiliations={resource.affiliations ?? []}
+            projectSlug={project.slug}
+            projectName={project.name}
+            resourceCount={projectResourceCount}
             pdfUrl={resource.pdfUrl}
             repoUrl={resource.repoUrl}
             arxivUrl={resource.arxivUrl}
