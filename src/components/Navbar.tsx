@@ -41,7 +41,7 @@ export default function Navbar() {
         <Link
           to="/"
           className="flex items-center gap-3"
-          aria-label="IRL CROSSING - Resources"
+          aria-label="IRL CROSSING - Projects"
           onClick={() => setMenuOpen(false)}
         >
           <img src={logoLight} alt="" className="block h-6 w-auto dark:hidden" />
