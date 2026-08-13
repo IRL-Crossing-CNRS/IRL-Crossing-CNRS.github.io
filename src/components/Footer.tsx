@@ -17,7 +17,7 @@ export default function Footer() {
     >
       <div className="mx-auto flex max-w-6xl flex-col items-center gap-2 px-6 py-8 text-center text-sm text-muted sm:flex-row sm:justify-between sm:text-left">
         <p>&copy; {year} IRL CROSSING CNRS. All rights reserved.</p>
-        <Link to="/" className="flex items-center gap-3" aria-label="IRL CROSSING - Resources">
+        <Link to="/" className="flex items-center gap-3" aria-label="IRL CROSSING - Projects">
           <img src={logoLight} alt="" className="block h-6 w-auto dark:hidden" />
           <img src={logoDark} alt="" className="hidden h-6 w-auto dark:block" />
         </Link>

@@ -1,6 +1,6 @@
-# IRL CROSSING CNRS - Resources
+# IRL CROSSING CNRS - Projects
 
-A standalone site indexing IRL CROSSING CNRS's scientific resources (publications, datasets, tools) organized by project, wiki-style. This is not the lab's institutional site (that's [crossing.cnrs.fr](https://crossing.cnrs.fr/)) - no lab presentation, no team pages, no commercial content. Just projects and the resources they produced.
+A standalone site indexing IRL CROSSING CNRS's scientific projects (publications, datasets, tools) organized by project, wiki-style. This is not the lab's institutional site (that's [crossing.cnrs.fr](https://crossing.cnrs.fr/)) - no lab presentation, no team pages, no commercial content. Just projects and the resources they produced.
 
 Live at [irl-crossing-cnrs.github.io](https://irl-crossing-cnrs.github.io/).
 
