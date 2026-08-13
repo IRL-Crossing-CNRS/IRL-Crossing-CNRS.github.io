@@ -1,5 +1,5 @@
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { Globe, Menu, X } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import logoDark from '../assets/logo/crossing-wordmark-dark.png';
@@ -10,8 +10,10 @@ import { EASE_REFINED } from '../lib/motion';
 import { GithubIcon, LinkedinIcon, YoutubeIcon } from './icons';
 import ThemeToggle from './ThemeToggle';
 
+const MAIN_SITE_URL = 'https://crossing.cnrs.fr/';
+const MAIN_SITE_LABEL = 'Official IRL CROSSING CNRS website';
+
 const EXTERNAL_LINKS = [
-  { href: 'https://crossing.cnrs.fr/', label: 'Official IRL CROSSING CNRS website', icon: Globe },
   { href: 'https://github.com/IRL-Crossing-CNRS', label: 'GitHub organization', icon: GithubIcon },
   { href: 'https://www.youtube.com/@IRL_Crossing', label: 'Youtube channel', icon: YoutubeIcon },
   { href: 'https://www.linkedin.com/in/irl-crossing-b27557281/', label: 'LinkedIn', icon: LinkedinIcon },
@@ -49,6 +51,21 @@ export default function Navbar() {
         </Link>
 
         <nav className="hidden items-center gap-1.5 sm:flex sm:gap-2">
+          <motion.a
+            href={MAIN_SITE_URL}
+            target="_blank"
+            rel="noreferrer noopener"
+            aria-label={MAIN_SITE_LABEL}
+            title={MAIN_SITE_LABEL}
+            whileHover={{ y: -1 }}
+            whileTap={{ scale: 0.96 }}
+            transition={{ duration: 0.15, ease: EASE_REFINED }}
+            className="mr-1 flex items-center gap-1.5 rounded-full bg-accent-soft px-3 py-1.5 text-xs font-medium text-accent transition-colors duration-200 hover:bg-accent hover:text-accent-foreground"
+          >
+            crossing.cnrs.fr
+            <ArrowUpRight size={13} />
+          </motion.a>
+          <span className="mr-1 h-5 w-px bg-border" aria-hidden="true" />
           {EXTERNAL_LINKS.map(({ href, label, icon: Icon }) => (
             <motion.a
               key={href}
@@ -116,6 +133,17 @@ export default function Navbar() {
                   <div className="mb-4 h-px bg-border" aria-hidden="true" />
                 </>
               )}
+
+              <a
+                href={MAIN_SITE_URL}
+                target="_blank"
+                rel="noreferrer noopener"
+                onClick={() => setMenuOpen(false)}
+                className="mb-4 flex items-center justify-center gap-1.5 rounded-full bg-accent-soft px-3 py-2 text-sm font-medium text-accent transition-colors duration-200 hover:bg-accent hover:text-accent-foreground"
+              >
+                {MAIN_SITE_LABEL}
+                <ArrowUpRight size={14} />
+              </a>
 
               <ul className="mb-4 space-y-0.5">
                 {EXTERNAL_LINKS.map(({ href, label, icon: Icon }) => (
