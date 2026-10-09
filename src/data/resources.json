@@ -20,7 +20,8 @@
     "tags": ["maritime robotics", "multi-agent simulation", "human-in-the-loop", "underwater currents"],
     "pdfUrl": "/resources/lotusim-iros2026.pdf",
     "repoUrl": "https://github.com/IRL-Crossing-CNRS/LOTUSim",
-    "arxivUrl": "https://arxiv.org/abs/2607.03072"
+    "arxivUrl": "https://arxiv.org/abs/2607.03072",
+    "docsUrl": "https://irl-crossing-cnrs.github.io/LOTUSim/"
   },
   {
     "slug": "lotusim-energy-iros2026",
@@ -40,7 +41,9 @@
     "abstract": "LOTUSim-Energy is a real-time maritime simulator for multi-domain human-drone interaction in offshore wind operation and maintenance. It unifies heterogeneous unmanned vehicles (UAVs, USVs, AUVs, ROVs) within a distributed architecture coupling environmental forcing (wind, waves, currents), immersive desktop/VR supervision, energy-aware battery modeling, and fault-detection pipelines, demonstrated on a multi-domain inspection scenario for offshore wind turbine monopile and transition-piece structures.",
     "tags": ["offshore wind O&M", "multi-domain simulation", "human-in-the-loop", "energy-aware planning"],
     "pdfUrl": "/resources/lotusim-energy-iros2026.pdf",
-    "repoUrl": "https://github.com/IRL-Crossing-CNRS/LOTUSim-Energy"
+    "repoUrl": "https://github.com/IRL-Crossing-CNRS/LOTUSim-Energy",
+    "arxivUrl": "https://arxiv.org/abs/2609.17124",
+    "docsUrl": "https://irl-crossing-cnrs.github.io/LOTUSim/"
   },
   {
     "slug": "robobreizh-robocup2023",

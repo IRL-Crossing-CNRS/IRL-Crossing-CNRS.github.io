@@ -1,5 +1,5 @@
-import { FileText, Presentation } from 'lucide-react';
-import { GithubIcon, YoutubeIcon } from '../../components/icons';
+import { BookOpen, FileText, Presentation } from 'lucide-react';
+import { ArxivIcon, GithubIcon, YoutubeIcon } from '../../components/icons';
 import CitationBlock from '../../components/resource-detail/CitationBlock';
 import Figure from '../../components/resource-detail/Figure';
 import ResourceHero from '../../components/resource-detail/ResourceHero';
@@ -57,9 +57,11 @@ export default function LotuSimEnergyIros2026() {
 
   const sidebarLinks = [
     { href: resource.pdfUrl, label: 'Paper (PDF)', icon: FileText },
+    { href: resource.arxivUrl, label: 'arXiv', icon: ArxivIcon },
     { href: VIDEO_URL, label: 'Video', icon: YoutubeIcon },
-    { href: resource.repoUrl, label: 'Code', icon: GithubIcon },
     { href: WORKSHOP_URL, label: 'Workshop', icon: Presentation },
+    { href: resource.repoUrl, label: 'Code', icon: GithubIcon },
+    { href: resource.docsUrl, label: 'Documentation', icon: BookOpen },
   ];
 
   return (
@@ -75,9 +77,15 @@ export default function LotuSimEnergyIros2026() {
             projectName={project.name}
             resourceCount={projectResourceCount}
             pdfUrl={resource.pdfUrl}
-            repoUrl={resource.repoUrl}
             videoUrl={VIDEO_URL}
-            extraLinks={[{ href: WORKSHOP_URL, label: 'Workshop', icon: Presentation }]}
+            arxivUrl={resource.arxivUrl}
+            extraLinks={[
+              // Code is passed here rather than as repoUrl so that Workshop sits
+              // between Video and Code, with Documentation right after Code.
+              { href: WORKSHOP_URL, label: 'Workshop', icon: Presentation },
+              ...(resource.repoUrl ? [{ href: resource.repoUrl, label: 'Code', icon: GithubIcon }] : []),
+              ...(resource.docsUrl ? [{ href: resource.docsUrl, label: 'Documentation', icon: BookOpen }] : []),
+            ]}
           />
 
           <Section id="abstract" title="Abstract" noDivider>

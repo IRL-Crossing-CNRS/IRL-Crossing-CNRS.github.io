@@ -1,4 +1,4 @@
-import { FileText, PlayCircle } from 'lucide-react';
+import { BookOpen, FileText, PlayCircle } from 'lucide-react';
 import { GithubIcon, ArxivIcon } from '../../components/icons';
 import CitationBlock from '../../components/resource-detail/CitationBlock';
 import Figure from '../../components/resource-detail/Figure';
@@ -59,6 +59,7 @@ export default function LotuSimIros2026() {
     { href: resource.arxivUrl, label: 'arXiv', icon: ArxivIcon },
     { href: VIDEO_URL, label: 'Video', icon: PlayCircle },
     { href: resource.repoUrl, label: 'Code', icon: GithubIcon },
+    { href: resource.docsUrl, label: 'Documentation', icon: BookOpen },
   ];
 
   return (
@@ -77,6 +78,7 @@ export default function LotuSimIros2026() {
             repoUrl={resource.repoUrl}
             arxivUrl={resource.arxivUrl}
             videoUrl={VIDEO_URL}
+            extraLinks={resource.docsUrl ? [{ href: resource.docsUrl, label: 'Documentation', icon: BookOpen }] : []}
           />
 
 

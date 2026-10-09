@@ -24,4 +24,5 @@ export interface Resource {
   repoUrl?: string;
   resourceUrl?: string;
   arxivUrl?: string;
+  docsUrl?: string;
 }
