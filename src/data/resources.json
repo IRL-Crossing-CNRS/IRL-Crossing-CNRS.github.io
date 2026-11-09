@@ -23,6 +23,17 @@
     "arxivUrl": "https://arxiv.org/abs/2607.03072"
   },
   {
+    "slug": "lotusim-cooperative-exploration",
+    "title": "Cooperative 3D UAV Exploration in LOTUSim",
+    "project": "lotusim",
+    "type": ["overview"],
+    "authors": [],
+    "year": 2026,
+    "venue": "Project overview",
+    "abstract": "A team of UAVs learns where to explore next. Frontier assignment is adapted to 3D multi-UAV mapping, and a shared policy trained with MAPPO only decides how each UAV trades travel distance against new information. Run unchanged in LOTUSim with Unity sensing and PX4 flight, it maps a minefield scenario about 2.1 times faster than classical baselines and also works with larger teams. Videos and mission replays are available on the dedicated project website.",
+    "tags": ["exploration", "multi-agent","reinforcement learning", "3D voxel mapping", "frontier assignment", "PX4", "LOTUSim"]
+  },
+  {
     "slug": "lotusim-energy-iros2026",
     "title": "LOTUSim-Energy: A Maritime Simulator for Human-Drone Interaction in Autonomous Offshore Operation & Maintenance",
     "project": "lotusim-energy",
