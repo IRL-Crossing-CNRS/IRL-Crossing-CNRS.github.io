@@ -29,17 +29,13 @@ const PROJECT_SITE = 'https://gechhai.github.io/lotusim-reinforcement-learning';
 const WEBSITE_LINK = { href: `${PROJECT_SITE}/`, label: 'Project website', icon: Globe };
 const VIDEO_LINK = { href: `${PROJECT_SITE}/#demonstrations`, label: 'Videos', icon: PlayCircle };
 const LOTUSIM_REPO_LINK = { href: 'https://github.com/IRL-Crossing-CNRS/LOTUSim', label: 'Code', icon: GithubIcon };
-const LINKS = [
-  WEBSITE_LINK,
-  VIDEO_LINK,
-  LOTUSIM_REPO_LINK,
-  { href: `/projects/${project.slug}`, label: `${project.name} project`, icon: FolderOpen },
-];
+const LINKS = [WEBSITE_LINK, VIDEO_LINK, LOTUSIM_REPO_LINK];
 
+// Time to 95% coverage, counted from the team's first decision.
 const MISSION_STILLS = [
-  { uavs: 3, seconds: 170 },
-  { uavs: 4, seconds: 116 },
-  { uavs: 5, seconds: 129 },
+  { uavs: 3, seconds: 179 },
+  { uavs: 4, seconds: 125 },
+  { uavs: 5, seconds: 138 },
 ].map((still) => ({ ...still, src: `/resources/lotusim-cooperative-exploration/mission-stills/mission-${still.uavs}-uavs.jpg` }));
 
 const NAV_ITEMS = [
@@ -214,26 +210,26 @@ export default function LotusimCooperativeExploration() {
               The test scenario places three PX4 X500 multirotors over open water in LOTUSim&rsquo;s offshore wind-farm
               scene, with <Term>60 floating mines</Term> at different heights in a 125&nbsp;m × 125&nbsp;m area. Each
               method flew 10 missions from the same starts. The gap seen in training holds: even the slowest mission of
-              the final model (261&nbsp;s) was faster than the fastest baseline mission (354&nbsp;s).
+              the final model (269&nbsp;s) was faster than the fastest baseline mission (357&nbsp;s).
             </p>
             <StatGrid
               stats={[
-                { value: '203 s', label: 'Mean time to 95% coverage for the final model (430 s nearest-frontier, 436 s Voronoi)' },
+                { value: '211 s', label: 'Mean time to 95% coverage for the final model (433 s nearest-frontier, 439 s Voronoi)' },
                 { value: '~2.1×', label: 'Faster than both baselines over 10 missions each' },
-                { value: '~43%', label: 'Less total flight distance than either baseline' },
+                { value: '~41%', label: 'Less total flight distance than either baseline' },
               ]}
             />
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Figure
                 src={lotusimTopFinalImg}
                 light
-                alt="Top-down paths of three UAVs under the final model: each sweeps its own part of the minefield; 95 percent in 184 seconds after 939 metres."
+                alt="Top-down paths of three UAVs under the final model: each sweeps its own part of the minefield; 95 percent in 192 seconds after 971 metres."
                 caption="Fig. 4a - Final model (“MAPPO run 013” in the plot title): each UAV sweeps its own part of the field."
               />
               <Figure
                 src={lotusimTopNearestImg}
                 light
-                alt="Top-down paths of three UAVs under nearest frontier: the paths wind back and forth and overlap; 95 percent in 439 seconds after 1,687 metres."
+                alt="Top-down paths of three UAVs under nearest frontier: the paths wind back and forth and overlap; 95 percent in 442 seconds after 1,700 metres."
                 caption="Fig. 4b - Nearest-frontier: the UAVs keep doubling back through space that is already mapped."
               />
             </div>
@@ -395,6 +391,14 @@ export default function LotusimCooperativeExploration() {
         <aside className="hidden lg:sticky lg:top-24 lg:block lg:space-y-6">
           <SidebarCard title="Links">
             <SidebarLinks links={LINKS} />
+            {/* A page on this site: opens in the same tab through the router, unlike the external links above. */}
+            <Link
+              to={`/projects/${project.slug}`}
+              className="mt-2 flex items-center gap-2 rounded-lg border border-border px-3 py-2 text-sm text-foreground transition-colors duration-200 hover:border-accent hover:text-accent"
+            >
+              <FolderOpen size={14} />
+              {project.name} project
+            </Link>
           </SidebarCard>
           <SidebarCard title="Tags">
             <div className="flex flex-wrap gap-2">
