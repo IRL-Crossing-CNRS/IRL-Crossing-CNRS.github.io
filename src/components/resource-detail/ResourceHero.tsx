@@ -22,6 +22,8 @@ export interface ExtraLink {
 export default function ResourceHero({
   eyebrow,
   title,
+  subtitle,
+  tags = [],
   authors,
   affiliations,
   projectSlug,
@@ -35,6 +37,9 @@ export default function ResourceHero({
 }: {
   eyebrow: string;
   title: string;
+  /** Optional one-sentence description shown directly under the title. */
+  subtitle?: string;
+  tags?: string[];
   authors: Author[];
   affiliations: string[];
   projectSlug: string;
@@ -83,6 +88,16 @@ export default function ResourceHero({
       <h1 className="mt-5 text-3xl font-semibold leading-tight tracking-tight text-foreground sm:text-4xl">
         {title}
       </h1>
+      {subtitle && <p className="mt-3 text-lg leading-relaxed text-muted">{subtitle}</p>}
+      {tags.length > 0 && (
+        <ul aria-label="Project topics" className="mt-5 flex list-none flex-wrap gap-2">
+          {tags.map((tag) => (
+            <li key={tag} className="rounded-full border border-border px-2.5 py-1 text-xs text-muted">
+              {tag}
+            </li>
+          ))}
+        </ul>
+      )}
 
       <p className="mt-4 text-sm leading-relaxed text-muted">
         {authors.map((author, index) => {
