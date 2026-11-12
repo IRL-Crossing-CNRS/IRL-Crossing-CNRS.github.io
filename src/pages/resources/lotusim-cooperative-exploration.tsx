@@ -1,5 +1,5 @@
-import { FolderOpen, Globe, PlayCircle } from 'lucide-react';
-import type { ReactNode } from 'react';
+import { FolderOpen, PlayCircle } from 'lucide-react';
+import { useState, type ReactNode } from 'react';
 import { Link } from 'react-router-dom';
 import { Cite, DocTable } from '../../components/document/Doc';
 import { GithubIcon } from '../../components/icons';
@@ -24,21 +24,24 @@ const resource = (resourcesData as Resource[]).find((entry) => entry.slug === 'l
 const project = getProject(resource.project);
 const projectResourceCount = getProjectResources(resource.project).length;
 
-// Public project website (GitHub Pages, source: github.com/gechhai/lotusim-reinforcement-learning).
-const PROJECT_SITE = 'https://gechhai.github.io/lotusim-reinforcement-learning';
-const WEBSITE_LINK = { href: `${PROJECT_SITE}/`, label: 'Project website', icon: Globe };
-const VIDEO_LINK = { href: `${PROJECT_SITE}/#demonstrations`, label: 'Videos', icon: PlayCircle };
+const ASSETS = '/resources/lotusim-cooperative-exploration';
+const DEMO_VIDEO = `${ASSETS}/demo/lotusim-demo.mp4`;
+const VIDEO_LINK = { href: DEMO_VIDEO, label: 'Video (MP4)', icon: PlayCircle };
 const LOTUSIM_REPO_LINK = { href: 'https://github.com/IRL-Crossing-CNRS/LOTUSim', label: 'Code', icon: GithubIcon };
-const LINKS = [WEBSITE_LINK, VIDEO_LINK, LOTUSIM_REPO_LINK];
+const LINKS = [VIDEO_LINK, LOTUSIM_REPO_LINK];
 
 // Time to 95% coverage, counted from the team's first decision.
 const MISSION_STILLS = [
   { uavs: 3, seconds: 179 },
   { uavs: 4, seconds: 125 },
   { uavs: 5, seconds: 138 },
-].map((still) => ({ ...still, src: `/resources/lotusim-cooperative-exploration/mission-stills/mission-${still.uavs}-uavs.jpg` }));
+].map((still) => ({
+  ...still,
+  gif: `${ASSETS}/replays/replay-${still.uavs}-uavs.gif`,
+}));
 
 const NAV_ITEMS = [
+  { id: 'demo', label: 'Video' },
   { id: 'abstract', label: 'Abstract' },
   { id: 'approach', label: 'How It Works' },
   { id: 'simulator-results', label: 'Results in Training' },
@@ -105,6 +108,8 @@ function Subheading({ children }: { children: ReactNode }) {
 
 export default function LotusimCooperativeExploration() {
   useRegisterSectionNav(NAV_ITEMS);
+  const [teamSize, setTeamSize] = useState(3);
+  const replay = MISSION_STILLS.find((still) => still.uavs === teamSize)!;
 
   return (
     <div className="mx-auto max-w-6xl px-6 pb-24 pt-12 sm:pt-16">
@@ -118,10 +123,34 @@ export default function LotusimCooperativeExploration() {
             projectSlug={project.slug}
             projectName={project.name}
             resourceCount={projectResourceCount}
-            extraLinks={[WEBSITE_LINK, VIDEO_LINK, LOTUSIM_REPO_LINK]}
+            extraLinks={LINKS}
           />
 
-          <Section id="abstract" title="Abstract" noDivider>
+          <Section id="demo" title="Video" noDivider>
+            <figure>
+              <video
+                controls
+                playsInline
+                preload="none"
+                poster={`${ASSETS}/demo/lotusim-demo.jpg`}
+                width={1920}
+                height={1080}
+                className="h-auto w-full rounded-xl border border-border bg-black"
+                aria-label="LOTUSim exploration recording with map inset at twice normal speed"
+              >
+                <source src={DEMO_VIDEO} type="video/mp4" />
+                <a href={DEMO_VIDEO}>Download the LOTUSim demonstration</a>
+              </video>
+              <figcaption className="mt-3 text-sm text-muted">
+                Exploration in LOTUSim at 2× speed, with the exploration map shown in the inset.{' '}
+                <a href={DEMO_VIDEO} download className="text-accent hover:underline">
+                  Download video
+                </a>
+              </figcaption>
+            </figure>
+          </Section>
+
+          <Section id="abstract" title="Abstract">
             <p>
               A team of UAVs exploring an unknown area has to keep deciding{' '}
               <Term>where each vehicle should go next</Term>. Classical frontier methods make that choice with a fixed
@@ -244,26 +273,36 @@ export default function LotusimCooperativeExploration() {
               extra UAV helps.
             </p>
             <figure>
-              <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
-                {MISSION_STILLS.map(({ uavs, seconds, src }) => (
-                  <div key={uavs}>
-                    <a href={src} target="_blank" rel="noreferrer noopener" aria-label={`Open the full-size ${uavs}-UAV mission snapshot`}>
-                      <img
-                        src={src}
-                        loading="lazy"
-                        alt={`Final mapped state of the recorded LOTUSim mission with ${uavs} UAVs at 95% coverage`}
-                        className="aspect-square w-full rounded-xl border border-border bg-white object-contain"
-                      />
-                    </a>
-                    <p className="mt-1 text-center text-xs text-muted">
-                      {uavs} UAVs · {seconds} s
-                    </p>
-                  </div>
+              <div className="mb-3 flex gap-2" role="group" aria-label="Choose a mission replay">
+                {MISSION_STILLS.map(({ uavs }) => (
+                  <button
+                    key={uavs}
+                    type="button"
+                    aria-pressed={uavs === teamSize}
+                    onClick={() => setTeamSize(uavs)}
+                    className={`rounded-lg border px-3 py-1.5 text-sm transition-colors duration-200 ${
+                      uavs === teamSize ? 'border-accent text-accent' : 'border-border text-foreground hover:border-accent'
+                    }`}
+                  >
+                    {uavs} UAVs
+                  </button>
                 ))}
               </div>
+              <a href={replay.gif} target="_blank" rel="noreferrer noopener" aria-label={`Open the ${teamSize}-UAV mission replay`}>
+                <img
+                  src={replay.gif}
+                  loading="lazy"
+                  alt={`Looping replay of the recorded LOTUSim mission with ${teamSize} UAVs`}
+                  className="mx-auto max-h-[560px] w-auto max-w-full rounded-xl border border-border bg-white object-contain"
+                />
+              </a>
+              <p className="mt-1 text-center text-xs text-muted">
+                {teamSize} UAVs · 95% coverage in {replay.seconds} s
+              </p>
               <figcaption className="mt-3 text-sm text-muted">
-                Fig. 5 - Final mapped state of LOTUSim missions with three, four and five UAVs, with the time to reach 95%
-                coverage. Explored space is coloured by the UAV that sensed it; black blocks are detected mines.
+                Fig. 5 - Accelerated 3D replay reconstructed from the recorded LOTUSim missions with three, four and five
+                UAVs (a data replay, not a camera recording). Explored space is coloured by the UAV that sensed it; black
+                blocks are detected mines.
               </figcaption>
             </figure>
           </Section>
