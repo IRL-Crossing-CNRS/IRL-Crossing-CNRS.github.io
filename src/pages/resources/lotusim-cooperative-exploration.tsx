@@ -19,6 +19,7 @@ import snapshotImg from '../../assets/resources/lotusim-cooperative-exploration/
 import baselinesImg from '../../assets/resources/lotusim-cooperative-exploration/baselines.svg';
 import lotusimTopFinalImg from '../../assets/resources/lotusim-cooperative-exploration/lotusim-top-final.svg';
 import lotusimTopNearestImg from '../../assets/resources/lotusim-cooperative-exploration/lotusim-top-nearest.svg';
+import lotusimTrialsImg from '../../assets/resources/lotusim-cooperative-exploration/lotusim-trials.svg';
 
 const resource = (resourcesData as Resource[]).find((entry) => entry.slug === 'lotusim-cooperative-exploration')!;
 const project = getProject(resource.project);
@@ -62,36 +63,48 @@ const REFERENCES: { id: number; text: string; href?: string; link?: string; inte
   },
   {
     id: 2,
+    text: 'B. Zhou, H. Xu and S. Shen, “RACER: Rapid collaborative exploration with a decentralized multi-UAV system,” IEEE Transactions on Robotics, vol. 39, no. 3, pp. 1816–1835, 2023.',
+    href: 'https://doi.org/10.1109/TRO.2023.3236945',
+    link: 'doi:10.1109/TRO.2023.3236945',
+  },
+  {
+    id: 3,
+    text: 'X. Yan, M. Zhang, Y. Fang, Y. Sun, J. Ma, Y. Gong, B. Zhou and J. Mei, “C²-Explorer: Contiguity-driven task allocation with connectivity-aware task representation for decentralized multi-UAV exploration,” 2026.',
+    href: 'https://arxiv.org/abs/2603.07699',
+    link: 'arXiv:2603.07699',
+  },
+  {
+    id: 4,
     text: 'P. Song and H. Yang, “FA-MARL: Frontier assignment with multi-agent reinforcement learning for efficient decentralized multi-robot exploration,” in Proc. 20th IEEE International Conference on Control and Automation (ICCA), 2026, p. 1722.',
     href: 'https://doi.org/10.1109/ICCA69928.2026.11618240',
     link: 'doi:10.1109/ICCA69928.2026.11618240',
   },
   {
-    id: 3,
+    id: 5,
     text: 'C. Yu, A. Velu, E. Vinitsky, J. Gao, Y. Wang, A. Bayen and Y. Wu, “The surprising effectiveness of PPO in cooperative multi-agent games,” 2021.',
     href: 'https://arxiv.org/abs/2103.01955',
     link: 'arXiv:2103.01955',
   },
   {
-    id: 4,
+    id: 6,
     text: 'C. Buche, J. Grosset, H. Lechêne, M. Dubromel, P. Havez-Bodivit, M. Neo and J. Prodhon, “LOTUSim: Multi-domain simulator for marine robotics,” in Proc. IEEE/RSJ International Conference on Intelligent Robots and Systems (IROS), 2026.',
     internal: '/resources/lotusim-iros2026',
     link: 'Project page',
   },
   {
-    id: 5,
+    id: 7,
     text: 'D. S. Chaplot, D. Gandhi, A. Gupta and R. Salakhutdinov, “Object goal navigation using goal-oriented semantic exploration,” in Advances in Neural Information Processing Systems (NeurIPS), 2020.',
     href: 'https://arxiv.org/abs/2007.00643',
     link: 'arXiv:2007.00643',
   },
   {
-    id: 6,
+    id: 8,
     text: 'O. Bagoren, S. Isaacson, S. Sundar, Y.-C. Sun, A. Sheppard, H. Ma, A. Shariff, R. Vasudevan and K. A. Skinner, “SurfSLAM: Sim-to-real underwater stereo reconstruction for real-time SLAM,” 2026.',
     href: 'https://arxiv.org/abs/2601.10814',
     link: 'arXiv:2601.10814',
   },
   {
-    id: 7,
+    id: 9,
     text: 'R. Tanaka and A. Harada, “UnitySensors: Robot sensor simulation for Unity,” Field-Robotics-Japan, software, Apache License 2.0.',
     href: 'https://github.com/Field-Robotics-Japan/UnitySensors',
     link: 'github.com/Field-Robotics-Japan/UnitySensors',
@@ -155,10 +168,12 @@ export default function LotusimCooperativeExploration() {
               A team of UAVs exploring an unknown area has to keep deciding{' '}
               <Term>where each vehicle should go next</Term>. Classical frontier methods make that choice with a fixed
               rule, such as &ldquo;go to the nearest unexplored edge&rdquo;, which is cheap but sends vehicles back and
-              forth over space that is already mapped <Cite refs={[1]} />. This project adapts FA-MARL{' '}
-              <Cite refs={[2]} /> from 2D ground robots to <Term>3D multi-UAV exploration</Term>: the classical mapping
+              forth over space that is already mapped <Cite refs={[1]} />. Dedicated multi-UAV systems such as RACER{' '}
+              <Cite refs={[2]} /> and C²-Explorer <Cite refs={[3]} /> coordinate decentralized teams by dividing the
+              space and allocating exploration tasks between vehicles. This project adapts FA-MARL{' '}
+              <Cite refs={[4]} /> from 2D ground robots to <Term>3D multi-UAV exploration</Term>: the classical mapping
               and planning pipeline stays, and a policy trained with multi-agent reinforcement learning (MAPPO{' '}
-              <Cite refs={[3]} />) only decides how each UAV trades travel distance against new information.
+              <Cite refs={[5]} />) only decides how each UAV trades travel distance against new information.
             </p>
             <p>
               The policy is trained in a lightweight 3D simulator and then runs{' '}
@@ -167,8 +182,8 @@ export default function LotusimCooperativeExploration() {
                   LOTUSim
                 </Link>
               </Term>{' '}
-              <Cite refs={[4]} />, with Unity ray sensing and PX4 software-in-the-loop multirotors. In LOTUSim it maps a minefield scenario{' '}
-              <Term>about 2.1 times faster</Term> than classical baselines, and it also works with four and five UAVs
+              <Cite refs={[6]} />, with Unity ray sensing and PX4 software-in-the-loop multirotors. Over 10 LOTUSim missions per method, it maps a minefield scenario{' '}
+              <Term>about 2.1 times faster</Term> on average than classical baselines, and it also works with four and five UAVs
               without retraining. All results come from simulation.
             </p>
             <Figure
@@ -196,7 +211,6 @@ export default function LotusimCooperativeExploration() {
             <p>
               All UAVs share one policy, trained with MAPPO for about 16 hours on one GPU workstation. A reward
               encourages fast team coverage and penalises rescanning known space or chasing the same region as a teammate.
-              The observation, reward terms, network and training settings are covered in the full project documentation.
             </p>
             <Figure
               src={snapshotImg}
@@ -208,14 +222,19 @@ export default function LotusimCooperativeExploration() {
 
           <Section id="simulator-results" title="Results in the Training Simulator">
             <p>
-              The final model was tested on 20 maps it had never seen, against two classical rules that use exactly the
+              Before LOTUSim, the final model was tested in the <Term>lightweight training simulator</Term> on 20 maps it
+              had never seen, one mission per map, against two classical rules that use exactly the
               same mapping and planner: <Term>nearest-frontier</Term>, where every UAV goes to its closest frontier, and{' '}
               <Term>Voronoi assignment</Term>, where each UAV only takes frontiers closer to it than to any teammate. The
               metric is the time for the team to map 95% of the reachable free space.
             </p>
             <StatGrid
               stats={[
-                { value: '175 s', label: 'Mean time to 95% coverage for the final model (585 s nearest-frontier, 583 s Voronoi)' },
+                {
+                  value: '175 s',
+                  label:
+                    'Mean time to 95% over 20 unseen maps in the training simulator; baselines 585 s nearest-frontier, 583 s Voronoi',
+                },
                 { value: '20 / 20', label: 'Unseen maps on which the final model finished first' },
                 { value: '~60%', label: 'Less total flight distance than either baseline' },
               ]}
@@ -224,7 +243,7 @@ export default function LotusimCooperativeExploration() {
               src={baselinesImg}
               light
               alt="Two bar charts. Mean time to map 95 percent: nearest frontier 585 seconds, Voronoi 583 seconds, final model 175 seconds. Mean team flight distance: nearest frontier 2,508 metres, Voronoi 2,450 metres, final model 972 metres."
-              caption="Fig. 3 - Averages over 20 unseen test maps. Left: time to map 95% of the reachable free space. Right: total distance flown by the team."
+              caption="Fig. 3 - Training simulator, not LOTUSim: averages over 20 unseen test maps. Left: time to map 95% of the reachable free space. Right: total distance flown by the team."
             />
           </Section>
 
@@ -238,28 +257,49 @@ export default function LotusimCooperativeExploration() {
             <p>
               The test scenario places three PX4 X500 multirotors over open water in LOTUSim&rsquo;s offshore wind-farm
               scene, with <Term>60 floating mines</Term> at different heights in a 125&nbsp;m × 125&nbsp;m area. Each
-              method flew 10 missions from the same starts. The gap seen in training holds: even the slowest mission of
-              the final model (269&nbsp;s) was faster than the fastest baseline mission (357&nbsp;s).
+              method — the final model, nearest-frontier and Voronoi — flew{' '}
+              <Term>10 missions in LOTUSim from the same start positions</Term>. Each mission is timed from the
+              team&rsquo;s first decision until 95% of the reachable free space is mapped. The numbers below are{' '}
+              <Term>means over those 10 missions</Term>. The gap seen in training holds: even the slowest of the final
+              model&rsquo;s 10 missions (269&nbsp;s) was faster than the fastest baseline mission (357&nbsp;s).
             </p>
             <StatGrid
               stats={[
-                { value: '211 s', label: 'Mean time to 95% coverage for the final model (433 s nearest-frontier, 439 s Voronoi)' },
-                { value: '~2.1×', label: 'Faster than both baselines over 10 missions each' },
-                { value: '~41%', label: 'Less total flight distance than either baseline' },
+                {
+                  value: '211 s',
+                  label:
+                    'Mean time to 95% over the final model’s 10 LOTUSim missions (SD 23.5 s); baselines 433 s nearest-frontier, 439 s Voronoi',
+                },
+                { value: '~2.1×', label: 'Faster than either baseline, comparing the 10-mission means' },
+                {
+                  value: '~41%',
+                  label: 'Less team flight distance than either baseline (10-mission means: 1,024 m vs 1,747 m and 1,736 m)',
+                },
               ]}
             />
+            <Figure
+              src={lotusimTrialsImg}
+              light
+              alt="Dot plot of the time to 95 percent coverage for every LOTUSim mission, ten per method. Final model: dots between about 190 and 269 seconds, mean 211 seconds. Nearest frontier: mean 433 seconds. Voronoi: mean 439 seconds."
+              caption="Fig. 4 - All 30 LOTUSim missions (10 per method, three UAVs). Each dot is one mission and the black bar is the 10-mission mean quoted above."
+            />
+            <p>
+              The paths below come from <Term>one mission per method</Term>, the first of each method&rsquo;s 10, so
+              the time and distance in each plot title belong to that mission only and differ from the 10-mission means
+              above.
+            </p>
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <Figure
                 src={lotusimTopFinalImg}
                 light
-                alt="Top-down paths of three UAVs under the final model: each sweeps its own part of the minefield; 95 percent in 192 seconds after 971 metres."
-                caption="Fig. 4a - Final model (“MAPPO run 013” in the plot title): each UAV sweeps its own part of the field."
+                alt="Top-down paths of three UAVs under the final model in its first LOTUSim mission: each sweeps its own part of the minefield; 95 percent in 192 seconds after 971 metres."
+                caption="Fig. 5a - Final model, mission 1 of 10 (“MAPPO run 013” in the plot title): 95% coverage in 192 s with 971 m flown. Each UAV sweeps its own part of the field."
               />
               <Figure
                 src={lotusimTopNearestImg}
                 light
-                alt="Top-down paths of three UAVs under nearest frontier: the paths wind back and forth and overlap; 95 percent in 442 seconds after 1,700 metres."
-                caption="Fig. 4b - Nearest-frontier: the UAVs keep doubling back through space that is already mapped."
+                alt="Top-down paths of three UAVs under nearest frontier in its first LOTUSim mission: the paths wind back and forth and overlap; 95 percent in 442 seconds after 1,700 metres."
+                caption="Fig. 5b - Nearest-frontier, mission 1 of 10: 95% coverage in 442 s with 1,700 m flown. The UAVs keep doubling back through space that is already mapped."
               />
             </div>
           </Section>
@@ -269,8 +309,9 @@ export default function LotusimCooperativeExploration() {
               The policy sees its teammates through a single map of their positions, so it does not depend on how many
               there are. The same policy, trained with three UAVs, was also flown in LOTUSim with{' '}
               <Term>four and five UAVs</Term>, and the larger teams split the field between them without retraining.
-              Each team size was flown once, so these runs show that the policy carries over, not exactly how much each
-              extra UAV helps.
+              Each team size was flown in <Term>one separate LOTUSim mission</Term>, not part of the 10-mission
+              comparison above, so the times shown are single-mission results, not means. They show that the policy
+              carries over, not exactly how much each extra UAV helps.
             </p>
             <figure>
               <div className="mb-3 flex gap-2" role="group" aria-label="Choose a mission replay">
@@ -297,11 +338,11 @@ export default function LotusimCooperativeExploration() {
                 />
               </a>
               <p className="mt-1 text-center text-xs text-muted">
-                {teamSize} UAVs · 95% coverage in {replay.seconds} s
+                {teamSize} UAVs · single mission · 95% coverage in {replay.seconds} s
               </p>
               <figcaption className="mt-3 text-sm text-muted">
-                Fig. 5 - Accelerated 3D replay reconstructed from the recorded LOTUSim missions with three, four and five
-                UAVs (a data replay, not a camera recording). Explored space is coloured by the UAV that sensed it; black
+                Fig. 6 - Accelerated 3D replay reconstructed from the recorded LOTUSim mission for each team size, one
+                mission each with three, four and five UAVs (a data replay, not a camera recording). Explored space is coloured by the UAV that sensed it; black
                 blocks are detected mines.
               </figcaption>
             </figure>
@@ -348,7 +389,7 @@ export default function LotusimCooperativeExploration() {
             </p>
             <Subheading>Object-goal exploration</Subheading>
             <p>
-              In object-goal navigation <Cite refs={[5]} />, an agent is given a target
+              In object-goal navigation <Cite refs={[7]} />, an agent is given a target
               object, explores an unseen area, recognises the object with its onboard camera and moves to it. Chaplot et
               al. learn where to look next on a semantic map built from the camera images, an approach that won the 2020
               Habitat object-goal navigation challenge in indoor house scenes. Moving this idea into LOTUSim&rsquo;s
@@ -358,7 +399,7 @@ export default function LotusimCooperativeExploration() {
             </p>
             <Subheading>Underwater 3D mapping</Subheading>
             <p>
-              SurfSLAM <Cite refs={[6]} /> builds an accurate 3D map of a shipwreck in
+              SurfSLAM <Cite refs={[8]} /> builds an accurate 3D map of a shipwreck in
               real time with a BlueROV2. Camera depth usually fails underwater because of murky water, poor lighting and
               plain surfaces; SurfSLAM addresses this by training a stereo depth network on simulated underwater images
               and fine-tuning it on real footage. LOTUSim already simulates underwater vehicles and scenes, so it could
@@ -369,7 +410,7 @@ export default function LotusimCooperativeExploration() {
             <p>
               The LiDAR used in this work was written from scratch for the exploration task: an ideal sensor that
               returns exact ranges in a custom message only this pipeline reads.{' '}
-              UnitySensors <Cite refs={[7]} /> is an open-source Unity
+              UnitySensors <Cite refs={[9]} /> is an open-source Unity
               package that simulates LiDARs modelled on real Velodyne and Livox units, RGB and RGB-D cameras, an IMU and
               GNSS, and publishes them as standard ROS messages through the same bridge LOTUSim already uses. It would
               bring sensing closer to real hardware, give every LOTUSim mission a shared sensor library instead of
@@ -388,10 +429,6 @@ export default function LotusimCooperativeExploration() {
               <li>
                 <Term>One scenario.</Term> In LOTUSim the policy has been tested on one environment, the minefield, from
                 one start position. Offline, it was trained with one map size, obstacle density and team size.
-              </li>
-              <li>
-                <Term>Perfect communication.</Term> Maps are shared instantly through one host; delays, dropped messages
-                and onboard computing limits are not modelled.
               </li>
               <li>
                 <Term>Fixed input size.</Term> The policy reads a fixed 125&nbsp;m × 125&nbsp;m × 24&nbsp;m volume; larger
